@@ -36,6 +36,8 @@ Enable both for this project? (y/n)
 
 Installing a pack by hand leaves it **off** (every pack except `core` defaults to off). Turn it on with `claude plugin enable <pack>@agentic-harness`, in `/plugin` under Installed, or per project in `.claude/settings.json`.
 
+**Workflows:** packs with workflows (`/research-pack:deep`, `/orchestrator:sweep`) need Dynamic workflows. On the Pro plan, turn them on in `/config`.
+
 **Check it loaded:** `/plugin` shows `1 mod active · harness-band` under its tabs when the band mod is running (needs Claude Code v2.1.287 or later, and a trusted folder). `/harness` prints the band's summary.
 
 Prefer to choose by hand? Copy a preset from [`templates/`](../templates/) into `.claude/settings.json`:

@@ -10,6 +10,8 @@ Uses [Agent Reach](https://github.com/Panniantong/Agent-Reach) for platform acce
 ## 0. Pick the depth
 - Quick question: answer with a few searches, still citing sources.
 - Real research (several angles, needs cross-checking): run the bundled workflow `/research-pack:deep <question>`. It plans angles, collects in parallel, grades sources A to E, fact-checks, and returns only the cited report to this conversation.
+- If workflows are unavailable (no Workflow tool; on the Pro plan they are off until enabled in `/config` under Dynamic workflows), say so once, then do the same steps here: spawn one research subagent per angle in parallel with the Agent tool, then verify and report yourself.
+- Never answer a research request from memory alone. If no search tool works, say so and stop.
 - If the `firecrawl` pack is enabled, prefer its tools for reading pages, scraping and site-wide search.
 
 Everything searched or fetched this session is recorded by the sources tracker. `/sources` lists it and opens a Sources pane, so the user can audit what the answer is based on.

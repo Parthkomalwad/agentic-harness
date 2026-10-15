@@ -9,6 +9,7 @@ All notable changes. Each pack also carries its own `version` in `plugins/<pack>
 - Upstream `firecrawl` entry. CI now runs mod tests with `claude plugin test`.
 
 ### Fixed
+- `research-pack` 0.2.1: when workflows are off, the research skill runs parallel subagents instead, and never answers research from memory alone.
 - The band mod never loaded: Claude Code reserves the plugin name `core` for its own layer. The mod now ships as its own always-on pack, `harness-band`. `core` 0.2.1 keeps the skills.
 
 ### Added
