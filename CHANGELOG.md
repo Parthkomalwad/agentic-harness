@@ -1,0 +1,31 @@
+# Changelog
+
+All notable changes. Each pack also carries its own `version` in `plugins/<pack>/.claude-plugin/plugin.json`, bumped whenever the pack changes.
+
+## Unreleased
+
+### Added
+- `scripts/build-docs.mjs` generates the README catalogue, packs badge and hero from `marketplace.json`. CI fails when they drift.
+- Behaviour evals for every local skill (`plugins/<pack>/evals/`), run on demand by the `evals` workflow.
+- CI requires a version bump in any pack whose files change.
+- Monthly `price-check` workflow opens an issue when deploy-pack prices are older than 60 days.
+- `SECURITY.md` and this changelog.
+
+## v0.2.0 (2026-10-16)
+
+### Added
+- `council-pack`: an LLM council of four Claude agents with anonymous peer ranking and a chairman synthesis.
+- `architect-pack`: system and product design with a Well-Architected pillar review and design artifacts. Ships as a claude.ai skill zip.
+- Release workflow that publishes every skill as an uploadable zip.
+- README rewrite with a TL;DR and a three-step guide, and a Claude-palette hero.
+
+## v0.1.0 (2026-10-15)
+
+### Added
+- Marketplace with `core` and upstream entries for `superpowers`, `taste-skill`, `playwright-cli` and `web-design-guidelines`.
+- `ui-pack`, `motion-pack`, `docs-pack` and `deploy-pack`.
+- Semantic index: `metadata.intents` and `relevance` signals, and the `packs` skill that matches a problem to packs.
+- Catalogue validator, CI, branch protection and contributor guide.
+
+### Fixed
+- Catalogue entries lost in a merge (duplicate JSON keys). The validator now rejects duplicate keys.

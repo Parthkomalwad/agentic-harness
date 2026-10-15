@@ -1,0 +1,32 @@
+name: price-check
+
+# Monthly reminder: when deploy-pack's provider prices are older than 60 days,
+# open an issue asking for a re-check against each pricingUrl.
+on:
+  schedule:
+    - cron: '0 6 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  stale-prices:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Open an issue if prices are stale
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          checked=$(jq -r .checked plugins/deploy-pack/providers.json)
+          age=$(( ( $(date +%s) - $(date -d "$checked" +%s) ) / 86400 ))
+          echo "providers.json checked $checked ($age days ago)"
+          [ "$age" -gt 60 ] || exit 0
+          title="Re-check deploy-pack provider prices (last checked $checked)"
+          if gh issue list --state open --search "$title in:title" --json number --jq 'length' | grep -q '^0$'; then
+            urls=$(jq -r '.providers[] | "- [ ] \(.name): \(.pricingUrl)"' plugins/deploy-pack/providers.json)
+            printf 'Prices in plugins/deploy-pack/providers.json are %s days old.\n\nCheck each page, update the entry, set "checked" to today, and bump the deploy-pack version.\n\n%s\n' "$age" "$urls" \
+              | gh issue create --title "$title" --body-file -
+          fi

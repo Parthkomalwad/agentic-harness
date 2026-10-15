@@ -82,6 +82,8 @@ Commit messages follow [Conventional Commits](https://www.conventionalcommits.or
      "tags": ["ui", "audit"],
      "defaultEnabled": false,
      "metadata": {
+       "group": "Build",
+       "try": "audit my UI for accessibility",
        "intents": ["audit my UI", "check accessibility", "review UX"]
      },
      "relevance": {
@@ -93,7 +95,17 @@ Commit messages follow [Conventional Commits](https://www.conventionalcommits.or
 
    `metadata.intents` is required (at least 3): the problems the pack solves, written the way a user would say them. The `packs` skill matches on these. `relevance.signals` is optional: files, commands or dependencies that suggest the pack.
 
-5. **Update the README** catalogue table, and add a preset to `templates/` if the pack is meant to be used with others.
+   `metadata.group` places the pack in the README (`Foundation`, `Build`, `Decide`, `Ship` or `Upstream`). `metadata.try` is an example prompt. `metadata.hero` (`"on"` or `"off"`, at most 12 packs) puts it in the hero image.
+
+5. **Generate the docs.** Run `node scripts/build-docs.mjs`. It rewrites the README catalogue, the packs badge and the hero from `marketplace.json`. Never edit those by hand; CI fails if they drift.
+
+6. **Add evals.** Add at least one case under `plugins/<pack>/evals/<case>/` with a `prompt.md` (a request phrased the way a user would type it) and graders (a `tool_used` grader that the skill fired, and an `llm` grader on the result). See any existing pack for the pattern and the [eval docs](https://code.claude.com/docs/en/plugin-evals).
+
+7. **Update the README** catalogue table, and add a preset to `templates/` if the pack is meant to be used with others.
+
+## Change an existing pack
+
+Bump `version` in the pack's `plugin.json` (CI checks this) and add a line to `CHANGELOG.md` under *Unreleased*.
 
 ## Add an upstream (external) entry
 
@@ -135,8 +147,9 @@ See [docs/claude-code-primitives.md](docs/claude-code-primitives.md) for details
 ## Test before you open the PR
 
 ```bash
-# Catalogue rules (the same check CI runs)
+# Catalogue rules and generated docs (the same checks CI runs)
 node scripts/validate.mjs
+node scripts/build-docs.mjs --check
 
 # Claude Code's own validator
 claude plugin validate .

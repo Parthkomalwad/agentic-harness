@@ -1,0 +1,44 @@
+name: evals
+
+# Behaviour tests for each local pack, run with `claude plugin eval`.
+# Every run calls the model, so this runs only on demand and needs the
+# ANTHROPIC_API_KEY repository secret.
+on:
+  workflow_dispatch:
+    inputs:
+      pack:
+        description: Pack to evaluate (folder under plugins/), or "all"
+        default: all
+
+permissions:
+  contents: read
+
+jobs:
+  eval:
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install -g @anthropic-ai/claude-code
+      - name: Run evals
+        run: |
+          if [ -z "$ANTHROPIC_API_KEY" ]; then echo "::error::Set the ANTHROPIC_API_KEY secret first."; exit 1; fi
+          status=0
+          for dir in plugins/*/; do
+            name=$(basename "$dir")
+            [ "${{ inputs.pack }}" = all ] || [ "${{ inputs.pack }}" = "$name" ] || continue
+            [ -d "$dir/evals" ] || continue
+            echo "::group::$name"
+            claude plugin eval "$dir" --trust-plugin --no-publish --threshold 0.66 --max-cost-usd 5 --json "eval-$name.json" || status=1
+            echo "::endgroup::"
+          done
+          exit $status
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: eval-results
+          path: eval-*.json
