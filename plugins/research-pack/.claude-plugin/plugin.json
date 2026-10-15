@@ -1,7 +1,7 @@
 {
   "name": "research-pack",
   "displayName": "Research Pack",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Deep research across web, GitHub, Reddit, X and YouTube: a parallel workflow with A to E source grading and fact-checking, and a sources tracker you can audit with /sources.",
   "author": {
     "name": "Parth Komalwad",
