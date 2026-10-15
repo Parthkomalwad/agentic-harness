@@ -1,0 +1,17 @@
+{
+  "name": "ship-pack",
+  "displayName": "Ship Pack",
+  "version": "0.1.0",
+  "description": "Branch, commit, open a PR and write release notes the way this repo wants, following its CLAUDE.md and CONTRIBUTING rules.",
+  "author": {
+    "name": "Parth Komalwad",
+    "url": "https://github.com/Parthkomalwad"
+  },
+  "repository": "https://github.com/Parthkomalwad/agentic-harness",
+  "license": "MIT",
+  "keywords": [
+    "git",
+    "pull-request",
+    "release"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "orchestrator",
+  "displayName": "Orchestrator",
+  "version": "0.1.0",
+  "description": "Sweep a codebase with a dynamic workflow: cheap agents scan, stronger agents fix in isolated copies, a verifier keeps only proven changes.",
+  "author": {
+    "name": "Parth Komalwad",
+    "url": "https://github.com/Parthkomalwad"
+  },
+  "repository": "https://github.com/Parthkomalwad/agentic-harness",
+  "license": "MIT",
+  "keywords": [
+    "workflow",
+    "multi-agent",
+    "sweep"
+  ]
+}

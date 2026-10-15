@@ -1,0 +1,17 @@
+{
+  "name": "observability-pack",
+  "displayName": "Observability Pack",
+  "version": "0.1.0",
+  "description": "Add structured logs, health checks, metrics and error tracking so production problems are visible and debuggable.",
+  "author": {
+    "name": "Parth Komalwad",
+    "url": "https://github.com/Parthkomalwad"
+  },
+  "repository": "https://github.com/Parthkomalwad/agentic-harness",
+  "license": "MIT",
+  "keywords": [
+    "observability",
+    "logging",
+    "opentelemetry"
+  ]
+}

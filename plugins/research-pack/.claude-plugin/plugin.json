@@ -1,0 +1,17 @@
+{
+  "name": "research-pack",
+  "displayName": "Research Pack",
+  "version": "0.1.0",
+  "description": "Research across the web, GitHub, Reddit, X and YouTube with Agent Reach, cross-checked and cited.",
+  "author": {
+    "name": "Parth Komalwad",
+    "url": "https://github.com/Parthkomalwad"
+  },
+  "repository": "https://github.com/Parthkomalwad/agentic-harness",
+  "license": "MIT",
+  "keywords": [
+    "research",
+    "agent-reach",
+    "sources"
+  ]
+}

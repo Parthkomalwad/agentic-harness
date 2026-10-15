@@ -1,0 +1,17 @@
+{
+  "name": "db-pack",
+  "displayName": "DB Pack",
+  "version": "0.1.0",
+  "description": "Schema design, safe zero-downtime migrations, and index review for Postgres, MySQL and SQLite.",
+  "author": {
+    "name": "Parth Komalwad",
+    "url": "https://github.com/Parthkomalwad"
+  },
+  "repository": "https://github.com/Parthkomalwad/agentic-harness",
+  "license": "MIT",
+  "keywords": [
+    "database",
+    "migrations",
+    "postgres"
+  ]
+}

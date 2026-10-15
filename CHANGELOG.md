@@ -5,6 +5,8 @@ All notable changes. Each pack also carries its own `version` in `plugins/<pack>
 ## Unreleased
 
 ### Added
+- Ten packs: `glassbox`, `system-one`, `research-pack`, `orchestrator`, `test-pack`, `security-pack` (with a dangerous-command guard), `db-pack`, `observability-pack`, `ship-pack`, `launch-pack`.
+- Original 3D voxel mascot in the hero.
 - `scripts/build-docs.mjs` generates the README catalogue, packs badge and hero from `marketplace.json`. CI fails when they drift.
 - Behaviour evals for every local skill (`plugins/<pack>/evals/`), run on demand by the `evals` workflow.
 - CI requires a version bump in any pack whose files change.

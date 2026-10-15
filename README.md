@@ -13,7 +13,7 @@
 [![validate](https://github.com/Parthkomalwad/agentic-harness/actions/workflows/validate.yml/badge.svg)](https://github.com/Parthkomalwad/agentic-harness/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-D97757?labelColor=1F1E1D)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-plugin_marketplace-D97757?labelColor=1F1E1D)](https://code.claude.com/docs/en/plugins-reference)
-[![Packs](https://img.shields.io/badge/packs-11-D97757?labelColor=1F1E1D)](#catalogue)
+[![Packs](https://img.shields.io/badge/packs-21-D97757?labelColor=1F1E1D)](#catalogue)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-D97757?labelColor=1F1E1D)](CONTRIBUTING.md)
 
 [TL;DR](#tldr) ·
@@ -29,7 +29,7 @@
 
 ## TL;DR
 
-- **What:** one Claude Code marketplace with small packs: UI design, motion video, deployment strategy, READMEs, architecture, a multi-agent council, and more.
+- **What:** one Claude Code marketplace with 21 small packs: UI design, motion video, deployment, databases, testing, security, observability, shipping and launching, architecture, a multi-agent council, research, and cheap small-model helpers.
 - **Why:** most setups install everything and fill the context window. Here every pack except `core` is **off**, and a pack that is off costs **zero tokens**.
 - **How:** add the marketplace, install `core`, then tell Claude your problem. It picks the packs that fit and switches them on for that project only.
 
@@ -87,6 +87,7 @@ Prefer to choose by hand? Copy a preset from [`templates/`](templates/) into `.c
 | Pack | What it does | Try |
 |---|---|---|
 | `core` (**on**) | Always-on base: lean-code rules, and the packs skill that finds and enables the right packs for your problem. |  |
+| `system-one` | Cheap small models for typed judgments (TypeSafe Jev) and extraction or summaries (ScaleDown), so the big model only decides. | `summarize this 40 page PDF cheaply before you read it` |
 
 ### Build
 
@@ -95,6 +96,8 @@ Prefer to choose by hand? Copy a preset from [`templates/`](templates/) into `.c
 | `ui-pack` | UI without the AI look: DESIGN.md style, curated shadcn registries, build, screenshot, audit, fix. | `build a dashboard in the Vercel style` |
 | `motion-pack` | Motion design in code: launch videos and reels rendered frame by frame, with a self-critique loop. | `make a 20s vertical launch video for <url>` |
 | `docs-pack` | Create, restructure or update a README that explains the project clearly and looks good on GitHub. | `rewrite this README so people get it in 10 seconds` |
+| `orchestrator` | Sweep a codebase with a dynamic workflow: cheap agents scan, stronger agents fix in isolated copies, a verifier keeps only proven changes. | `/orchestrator:sweep missing auth checks in src/routes` |
+| `db-pack` | Schema design, safe zero-downtime migrations, and index review for Postgres, MySQL and SQLite. | `design the schema for a multi-tenant booking app` |
 
 ### Decide
 
@@ -102,12 +105,19 @@ Prefer to choose by hand? Copy a preset from [`templates/`](templates/) into `.c
 |---|---|---|
 | `council-pack` | LLM council made of Claude agents: independent answers, anonymous peer ranking, chairman synthesis. | `/council-pack:council Postgres or DynamoDB for this?` |
 | `architect-pack` | System and product design partner: requirements, options, Well-Architected pillar review, design artifacts. Also uploadable to claude.ai. | `design the architecture for a booking app` |
+| `glassbox` | Open the black box: record why each decision was made, map how the code flows, and quiz yourself before accepting a change. | `explain what you just built and quiz me on it` |
+| `research-pack` | Research across the web, GitHub, Reddit, X and YouTube with Agent Reach, cross-checked and cited. | `research what developers say about Bun vs Node in 2026` |
 
 ### Ship
 
 | Pack | What it does | Try |
 |---|---|---|
 | `deploy-pack` | Deployment strategist: audits a project, recommends the cheapest fitting stack with cost estimates and an exit plan. | `where should I deploy this, cheaply?` |
+| `test-pack` | Write the tests a change needs, find flaky tests, and loop on fixes until the suite is green. | `write tests for the change I just made` |
+| `security-pack` | Secret and dependency checks, an OWASP review of a diff, and a guard that asks before dangerous shell commands run. | `security review my diff before I push` |
+| `observability-pack` | Add structured logs, health checks, metrics and error tracking so production problems are visible and debuggable. | `add logging and error tracking to this API` |
+| `ship-pack` | Branch, commit, open a PR and write release notes the way this repo wants, following its CLAUDE.md and CONTRIBUTING rules. | `commit this and open a PR` |
+| `launch-pack` | Turn a finished project into a launch: README polish, a launch video, a blog post and social posts, all from the real code. | `help me launch this project` |
 
 ### Upstream
 
@@ -168,12 +178,13 @@ More in [docs/claude-code-primitives.md](docs/claude-code-primitives.md).
 
 ## Roadmap
 
-| Pack | Purpose |
+| Item | Purpose |
 |---|---|
-| `glassbox` | Open the black box: `DECISIONS.md`, `FLOW.md`, and a quiz before you accept a change |
-| `orchestrator` | Haiku scans, Sonnet edits, agents cross-check, Opus signs off, as dynamic workflows |
-| `system-one` | Cheap small models ([Jev](https://docs.typesafe.ai), [ScaleDown](https://docs.scaledown.ai)) for judgment and extraction |
-| `research-pack` | Research across the web, GitHub, Reddit, X and YouTube with [Agent Reach](https://github.com/Panniantong/Agent-Reach), cross-checked and cited |
+| Harness band mod | A live strip in Claude Code showing active packs, context use and session cost, plus an instant `/packs` toggle |
+| More upstream entries | Remotion and HyperFrames skills for motion-pack, Agent Reach as a plugin when it ships one |
+| Pack evals in CI | Run the eval suites on every release once an API budget is set |
+
+Have an idea? [Open a pack proposal](https://github.com/Parthkomalwad/agentic-harness/issues/new?template=pack-proposal.md).
 
 ## Contributing
 
