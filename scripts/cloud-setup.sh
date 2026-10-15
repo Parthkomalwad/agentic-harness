@@ -6,13 +6,13 @@
 # script instead. Set it once at claude.ai/code -> environment -> Setup script:
 #
 #   git clone --depth 1 https://github.com/Parthkomalwad/agentic-harness /tmp/agentic-harness
-#   HARNESS_PACKS="core memory-pack ui-pack" bash /tmp/agentic-harness/scripts/cloud-setup.sh
+#   HARNESS_PACKS="core harness-band memory-pack ui-pack" bash /tmp/agentic-harness/scripts/cloud-setup.sh
 #
-# HARNESS_PACKS: space-separated pack names. Default: core memory-pack.
+# HARNESS_PACKS: space-separated pack names. Default: core harness-band memory-pack.
 # The environment needs network access to github.com (the Trusted level allows it).
 set -euo pipefail
 
-PACKS="${HARNESS_PACKS:-core memory-pack}"
+PACKS="${HARNESS_PACKS:-core harness-band memory-pack}"
 MARKET="agentic-harness"
 
 if ! command -v claude >/dev/null 2>&1; then

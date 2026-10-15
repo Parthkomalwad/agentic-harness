@@ -9,6 +9,7 @@ Everything the README leaves out: how to use the harness day to day, in cloud se
 ```text
 /plugin marketplace add Parthkomalwad/agentic-harness
 /plugin install core@agentic-harness
+/plugin install harness-band@agentic-harness
 ```
 
 **2. Say what you are working on.** The `packs` skill matches your problem to the catalogue:
@@ -24,7 +25,7 @@ deploy-pack    "where should I deploy this"                   cost-ranked hostin
 Enable both for this project? (y/n)
 ```
 
-**See what is on.** `core` draws a band above the prompt with the harness packs that are on, context use and session cost. `/harness` prints the same line, even while Claude is working.
+**See what is on.** `harness-band` draws a line above the prompt with the harness packs that are on, context use and session cost. `/harness` prints the same line, even while Claude is working.
 
 **3. Say yes.** It writes `.claude/settings.json` in that project. Run `/reload-plugins`, then ask for the work:
 
@@ -35,7 +36,7 @@ Enable both for this project? (y/n)
 
 Installing a pack by hand leaves it **off** (every pack except `core` defaults to off). Turn it on with `claude plugin enable <pack>@agentic-harness`, in `/plugin` under Installed, or per project in `.claude/settings.json`.
 
-**Check it loaded:** `/plugin` shows `1 mod active · core` under its tabs when the harness band mod is running (needs Claude Code v2.1.287 or later, and a trusted folder). `/harness` prints the band's summary.
+**Check it loaded:** `/plugin` shows `1 mod active · harness-band` under its tabs when the band mod is running (needs Claude Code v2.1.287 or later, and a trusted folder). `/harness` prints the band's summary.
 
 Prefer to choose by hand? Copy a preset from [`templates/`](../templates/) into `.claude/settings.json`:
 
@@ -54,7 +55,7 @@ Cloud sessions ([claude.ai/code](https://claude.ai/code), `claude --cloud`, the 
 
 ```bash
 git clone --depth 1 https://github.com/Parthkomalwad/agentic-harness /tmp/agentic-harness
-HARNESS_PACKS="core memory-pack ui-pack deploy-pack" bash /tmp/agentic-harness/scripts/cloud-setup.sh
+HARNESS_PACKS="core harness-band memory-pack ui-pack deploy-pack" bash /tmp/agentic-harness/scripts/cloud-setup.sh
 ```
 
 3. Start a session. New packs you add to this repo arrive automatically, because the script installs from the latest `main`.

@@ -1,0 +1,10 @@
+{
+  "name": "harness-band",
+  "displayName": "Harness Band",
+  "version": "0.1.0",
+  "description": "A line above the prompt with the agentic-harness packs that are on, context use and session cost, plus the instant /harness command.",
+  "author": { "name": "Parth Komalwad", "url": "https://github.com/Parthkomalwad" },
+  "repository": "https://github.com/Parthkomalwad/agentic-harness",
+  "license": "MIT",
+  "keywords": ["mod", "status", "context"]
+}
