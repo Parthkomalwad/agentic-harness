@@ -108,7 +108,7 @@ Prefer to choose by hand? Copy a preset from [`templates/`](templates/) into `.c
 | Pack | What it does | Try |
 |---|---|---|
 | `council-pack` | LLM council made of Claude agents: independent answers, anonymous peer ranking, chairman synthesis. | `/council-pack:council Postgres or DynamoDB for this?` |
-| `architect-pack` | System and product design partner: requirements, options, Well-Architected pillar review, design artifacts. Also uploadable to claude.ai. | `design the architecture for a booking app` |
+| `architect-pack` | System and product design partner: requirements, options, Well-Architected pillar review, deployment plan, design artifacts. Also uploadable to claude.ai. | `design the architecture for a booking app` |
 | `glassbox` | Open the black box: record why each decision was made, map how the code flows, and quiz yourself before accepting a change. | `explain what you just built and quiz me on it` |
 | `research-pack` | Research across the web, GitHub, Reddit, X and YouTube with Agent Reach, cross-checked and cited. | `research what developers say about Bun vs Node in 2026` |
 
@@ -116,7 +116,7 @@ Prefer to choose by hand? Copy a preset from [`templates/`](templates/) into `.c
 
 | Pack | What it does | Try |
 |---|---|---|
-| `deploy-pack` | Deployment strategist: audits a project, recommends the cheapest fitting stack with cost estimates and an exit plan. | `where should I deploy this, cheaply?` |
+| `deploy-pack` | Deployment strategist and DevOps: audits a project, recommends the cheapest fitting stack with costs, then sets up CI/CD, infrastructure as code, environments, rollout and rollback. | `where should I deploy this, cheaply?` |
 | `test-pack` | Write the tests a change needs, find flaky tests, and loop on fixes until the suite is green. | `write tests for the change I just made` |
 | `security-pack` | Secret and dependency checks, an OWASP review of a diff, and a guard that asks before dangerous shell commands run. | `security review my diff before I push` |
 | `observability-pack` | Add structured logs, health checks, metrics and error tracking so production problems are visible and debuggable. | `add logging and error tracking to this API` |

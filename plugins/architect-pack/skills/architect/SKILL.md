@@ -1,6 +1,6 @@
 ---
 name: architect
-description: Design partner for systems and products. Turns a brainstorm into requirements, options, a Well-Architected pillar review and design artifacts. Use when the user is planning, designing or brainstorming a product, system or architecture.
+description: Design partner for systems and products. Turns a brainstorm into requirements, options, a Well-Architected pillar review, a deployment plan and design artifacts. Use when the user is planning, designing or brainstorming a product, system or architecture.
 ---
 
 # Architect
@@ -19,7 +19,10 @@ Give two or three real options, not one favorite and two strawmen. For each: a o
 ## Phase 4: Pillar review
 Review the recommended option against the six Well-Architected pillars in `references/pillars.md`. One row per pillar: risk level (low, medium, high), the main risk, the fix. Skip nothing; a pillar with no risk gets one line saying why.
 
-## Phase 5: Decide and record
+## Phase 5: Deployment and operations
+Plan where it runs and how it ships. If the `deploy-strategy` and `devops` skills (deploy-pack) are available, use them: `deploy-strategy` for the cheapest fitting hosting with monthly costs, `devops` for CI/CD, infrastructure as code, environments and rollback. Otherwise follow `references/deployment.md`. Add a Deployment section to the design: hosting per component with cost per traffic level, pipeline stages, rollout strategy and rollback plan.
+
+## Phase 6: Decide and record
 Write a decision record: context, decision, alternatives rejected, consequences. Then the first three build steps.
 
 ## When to make an artifact

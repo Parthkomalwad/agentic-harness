@@ -1,10 +1,19 @@
 {
   "name": "deploy-pack",
   "displayName": "Deploy Pack",
-  "version": "0.1.1",
-  "description": "Deployment strategist: audits a project and recommends the cheapest hosting stack that fits it, with cost estimates and an exit plan.",
-  "author": { "name": "Parth Komalwad", "url": "https://github.com/Parthkomalwad" },
+  "version": "0.2.0",
+  "description": "Deployment strategist and DevOps: cheapest fitting hosting with cost estimates, plus CI/CD, infrastructure as code, environments, safe rollout and rollback.",
+  "author": {
+    "name": "Parth Komalwad",
+    "url": "https://github.com/Parthkomalwad"
+  },
   "repository": "https://github.com/Parthkomalwad/agentic-harness",
   "license": "MIT",
-  "keywords": ["deploy", "hosting", "cost", "aws", "cloudflare"]
+  "keywords": [
+    "deploy",
+    "hosting",
+    "cost",
+    "aws",
+    "cloudflare"
+  ]
 }
