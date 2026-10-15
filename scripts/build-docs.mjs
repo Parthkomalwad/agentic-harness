@@ -58,17 +58,15 @@ const HERO = packs.filter((p) => p.metadata?.hero).map((p) => [p.name, p.metadat
 const W = 900, H = 420, CX = 450, CY = 205, RX = 330, RY = 135
 
 // Original voxel mascot: a pixel grid extruded into isometric cubes.
-// A = antenna, B = body, E = eye. Front face points down-left.
+// In the style of the Claude Code mascot. B = body, E = eye. Front face points down-left.
 const BOT = [
-  '....A....',
-  '....A....',
-  '..BBBBB..',
-  '.BBBBBBB.',
-  '.BEEBEEB.',
-  '.BBBBBBB.',
-  'BBBBBBBBB',
-  '.BB...BB.',
-  '.BB...BB.',
+  '..BBBBBBBBB..',
+  '..BEBBBBBEB..',
+  '..BEBBBBBEB..',
+  'BBBBBBBBBBBBB',
+  '..BBBBBBBBB..',
+  '...B.B...B.B.',
+  '...B.B...B.B.',
 ]
 const DEPTH = 3
 
@@ -80,7 +78,7 @@ function shade(hex, k) {
 
 function voxelBot(t, cx, cy) {
   // Cabinet projection: front faces the viewer, depth recedes up and right.
-  const s = 13, d = s * 0.5
+  const s = 12, d = s * 0.5
   const W0 = BOT[0].length, H0 = BOT.length
   const cubes = []
   BOT.forEach((row, r) => [...row].forEach((ch, x) => {

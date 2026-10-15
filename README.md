@@ -3,7 +3,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/hero-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="docs/assets/hero-light.svg">
-  <img src="docs/assets/hero-dark.svg" alt="A 3D voxel mascot at the centre of the agentic-harness hub, with packs around it. Six packs are switched on for this project and linked to the hub; the rest are dimmed and cost zero tokens." width="900">
+  <img src="docs/assets/hero-dark.svg" alt="A 3D voxel take on the Claude Code mascot at the centre of the agentic-harness hub, with packs around it. Six packs are switched on for this project and linked to the hub; the rest are dimmed and cost zero tokens." width="900">
 </picture>
 
 <br>
@@ -200,5 +200,8 @@ Hooks and mods run code on your machine with your permissions. Install packs onl
 `motion-pack` adapts the method from the guide *How to Build a Motion Design Studio With Opus 5.5* (raycfu). `council-pack` follows the design of Andrej Karpathy's [LLM Council](https://github.com/karpathy/llm-council). `architect-pack` uses the six pillars of the [AWS Well-Architected Framework](https://aws.amazon.com/architecture/well-architected/).
 
 ## License
+
+Community project, not affiliated with or endorsed by Anthropic. Claude and Claude Code are trademarks of Anthropic; the mascot in the hero is a fan-made tribute.
+
 
 [MIT](LICENSE). Upstream packs keep their own licenses.
