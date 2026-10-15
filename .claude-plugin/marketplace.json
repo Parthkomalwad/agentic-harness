@@ -19,6 +19,14 @@
       "defaultEnabled": true
     },
     {
+      "name": "ui-pack",
+      "source": "./plugins/ui-pack",
+      "description": "UI without the AI look: DESIGN.md style, curated shadcn registries, build, screenshot, audit, fix.",
+      "category": "ui",
+      "tags": ["ui", "design", "shadcn"],
+      "defaultEnabled": false
+    },
+    {
       "name": "superpowers",
       "source": { "source": "github", "repo": "obra/superpowers" },
       "description": "Upstream: brainstorm, plan, TDD, subagent execution and review methodology.",

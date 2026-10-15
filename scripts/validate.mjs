@@ -47,6 +47,14 @@ if (market) {
     if (manifest.name !== p.name) fail(where, `plugin.json name "${manifest.name}" differs from entry name`)
     for (const key of ['version', 'description', 'license']) if (!manifest[key]) fail(where, `plugin.json missing ${key}`)
 
+    const regFile = join(dir, 'registries.json')
+    if (existsSync(regFile)) {
+      for (const r of readJson(regFile)?.registries ?? []) {
+        for (const key of ['name', 'url', 'install', 'bestFor', 'license', 'tier']) if (!r[key]) fail(regFile, `registry "${r.name}" missing ${key}`)
+        if (!['free', 'freemium', 'paid', 'inspiration-only'].includes(r.tier)) fail(regFile, `registry "${r.name}" has unknown tier "${r.tier}"`)
+      }
+    }
+
     const skillsDir = join(dir, 'skills')
     if (!existsSync(skillsDir)) continue
     for (const skill of readdirSync(skillsDir)) {

@@ -1,0 +1,11 @@
+{
+  "name": "ui-pack",
+  "displayName": "UI Pack",
+  "version": "0.1.0",
+  "description": "Build UI that does not look AI-generated: pick a style, pick real components, build, screenshot, audit, fix.",
+  "author": { "name": "Parth Komalwad", "url": "https://github.com/Parthkomalwad" },
+  "repository": "https://github.com/Parthkomalwad/agentic-harness",
+  "license": "MIT",
+  "keywords": ["ui", "design", "shadcn", "audit"],
+  "dependencies": ["taste-skill", "playwright-cli", "web-design-guidelines"]
+}

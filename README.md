@@ -62,9 +62,7 @@ Switch packs on for **one project only**. Copy a preset from [`templates/`](temp
 {
   "enabledPlugins": {
     "core@agentic-harness": true,
-    "taste-skill@agentic-harness": true,
-    "playwright-cli@agentic-harness": true,
-    "web-design-guidelines@agentic-harness": true
+    "ui-pack@agentic-harness": true
   }
 }
 ```
@@ -74,7 +72,7 @@ Then run `/reload-plugins`.
 | Preset | Packs |
 |---|---|
 | [`minimal.json`](templates/minimal.json) | `core` |
-| [`ui.json`](templates/ui.json) | `core`, `taste-skill`, `playwright-cli`, `web-design-guidelines` |
+| [`ui.json`](templates/ui.json) | `core`, `ui-pack` (and its dependencies) |
 | [`methodology.json`](templates/methodology.json) | `core`, `superpowers` |
 
 ## Catalogue
@@ -82,6 +80,7 @@ Then run `/reload-plugins`.
 | Pack | Source | What it does |
 |---|---|---|
 | `core` | this repo, **on** | Lean-code rules, and the `packs` skill that switches packs on and off |
+| `ui-pack` | this repo | UI without the AI look: DESIGN.md style, curated shadcn registries ([Planes](https://useplanes.com), [Arc](https://uiarc.dev), [Space UI](https://spaceui.one), [Componentry](https://componentry.dev), [Skecher](https://skecher-ui.com)), build, screenshot, audit, fix. Pulls in `taste-skill`, `playwright-cli` and `web-design-guidelines` |
 | `taste-skill` | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | Art direction for UI work: image-to-code, redesign and style skills |
 | `playwright-cli` | [microsoft/playwright-cli](https://github.com/microsoft/playwright-cli) | Token-efficient browser automation for screenshots and checks. Needs `npm i -g @playwright/cli` |
 | `web-design-guidelines` | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | About 100 rules for auditing UI: accessibility, UX, performance |
@@ -120,7 +119,6 @@ Full table: [docs/claude-code-primitives.md](docs/claude-code-primitives.md).
 
 | Pack | Purpose | Built from |
 |---|---|---|
-| `ui-pack` | No more generic AI UI: pick a style, build, screenshot, audit, fix, as one workflow | taste-skill, [awesome-design-md](https://github.com/VoltAgent/awesome-design-md), playwright-cli, Vercel guidelines |
 | `glassbox` | Open the black box: `DECISIONS.md`, `FLOW.md`, and a quiz before you accept a change | Skills, a tracer agent, a quiz-gate mod |
 | `orchestrator` | Haiku scans, Sonnet edits, agents cross-check, Opus signs off | Dynamic workflows, role agents |
 | `system-one` | Cheap small models for judgment and extraction, so the big model only decides | [TypeSafe Jev](https://docs.typesafe.ai), [ScaleDown](https://docs.scaledown.ai) |
