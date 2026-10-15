@@ -1,0 +1,54 @@
+{
+  "registries": [
+    {
+      "name": "planes",
+      "url": "https://useplanes.com",
+      "install": "npx shadcn@latest add https://useplanes.com/r/{name}.json",
+      "index": "https://useplanes.com/r/index.json",
+      "docs": "Fetch a component page with header 'Accept: text/markdown'. Never load llms-full.txt whole (about 280K characters).",
+      "bestFor": ["product-ui", "command-palette", "segmented-control", "animated-controls"],
+      "license": "Free tier public; Pro is paid and may not be redistributed",
+      "tier": "freemium"
+    },
+    {
+      "name": "arc",
+      "url": "https://uiarc.dev",
+      "repo": "https://github.com/kuratlielia/arc-library",
+      "install": "Use the shadcn command shown on the component page",
+      "docs": "https://uiarc.dev/llms.txt",
+      "bestFor": ["dashboard", "settings", "auth", "forms", "product-ui"],
+      "license": "MIT (free components); Pro is paid",
+      "tier": "freemium"
+    },
+    {
+      "name": "space-ui",
+      "url": "https://spaceui.one",
+      "repo": "https://github.com/usespaceui/ui",
+      "install": "npx shadcn@latest add @spaceui/{name}",
+      "docs": "https://spaceui.one/docs",
+      "bestFor": ["ai-interface", "motion", "switches", "shaders", "chat"],
+      "license": "MIT; All-Access plan is paid",
+      "tier": "freemium"
+    },
+    {
+      "name": "componentry",
+      "url": "https://componentry.dev",
+      "repo": "https://github.com/harshjdhv/componentry",
+      "install": "npx shadcn@latest add @componentry/{name}",
+      "docs": "https://componentry.dev/docs",
+      "bestFor": ["hero", "landing", "portfolio", "webgl", "3d", "glass"],
+      "license": "MIT",
+      "tier": "free"
+    },
+    {
+      "name": "skecher-ui",
+      "url": "https://skecher-ui.com",
+      "repo": "https://github.com/CoDesign-Spa27/skecher-ui",
+      "install": "npx shadcn@latest add CoDesign-Spa27/skecher-ui/{name}",
+      "docs": "https://skecher-ui.com",
+      "bestFor": ["micro-interactions", "toolbar", "navigation", "ai-chat"],
+      "license": "none published",
+      "tier": "inspiration-only"
+    }
+  ]
+}
