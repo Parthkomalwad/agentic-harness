@@ -24,6 +24,11 @@
       "description": "UI without the AI look: DESIGN.md style, curated shadcn registries, build, screenshot, audit, fix.",
       "category": "ui",
       "tags": ["ui", "design", "shadcn"],
+      "name": "motion-pack",
+      "source": "./plugins/motion-pack",
+      "description": "Motion design in code: launch videos and reels rendered frame by frame, with a self-critique loop.",
+      "category": "media",
+      "tags": ["motion", "video", "animation"],
       "defaultEnabled": false
     },
     {
