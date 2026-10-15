@@ -58,15 +58,16 @@ const HERO = packs.filter((p) => p.metadata?.hero).map((p) => [p.name, p.metadat
 const W = 900, H = 420, CX = 450, CY = 205, RX = 330, RY = 135
 
 // Original voxel mascot: a pixel grid extruded into isometric cubes.
-// In the style of the Claude Code mascot. B = body, E = eye. Front face points down-left.
+// In the style of the Claude Code mascot. B = body (full depth), E = eye (front face),
+// A = arm and L = leg (one cube thick, centred in depth). Front face points down-left.
 const BOT = [
   '..BBBBBBBBB..',
   '..BEBBBBBEB..',
   '..BEBBBBBEB..',
-  'BBBBBBBBBBBBB',
+  'AABBBBBBBBBAA',
   '..BBBBBBBBB..',
-  '...B.B...B.B.',
-  '...B.B...B.B.',
+  '..L.L...L.L..',
+  '..L.L...L.L..',
 ]
 const DEPTH = 3
 
@@ -84,7 +85,8 @@ function voxelBot(t, cx, cy) {
   BOT.forEach((row, r) => [...row].forEach((ch, x) => {
     if (ch === '.') return
     const y = H0 - 1 - r
-    for (let z = 0; z < DEPTH; z++) cubes.push({ x, y, z, ch: ch === 'E' && z > 0 ? 'B' : ch })
+    const zs = ch === 'A' || ch === 'L' ? [1] : [0, 1, 2]
+    for (const z of zs) cubes.push({ x, y, z, ch: ch === 'E' && z > 0 ? 'B' : ch })
   }))
   // Paint far to near: back layers first, left to right, bottom to top.
   cubes.sort((a, b) => b.z - a.z || a.x - b.x || a.y - b.y)
@@ -92,7 +94,7 @@ function voxelBot(t, cx, cy) {
   const P = (x, y, z) => [ox + x * s + z * d, oy - y * s - z * d]
   const poly = (pts, fill) => `<polygon points="${pts.map(([a, b]) => a.toFixed(1) + ',' + b.toFixed(1)).join(' ')}" fill="${fill}" stroke="${fill}" stroke-width="0.6"/>`
   return cubes.map(({ x, y, z, ch }) => {
-    const base = ch === 'E' ? '#141312' : ch === 'A' ? shade(t.accent, 1.12) : t.accent
+    const base = ch === 'E' ? '#141312' : t.accent
     const top = poly([P(x, y + 1, z), P(x + 1, y + 1, z), P(x + 1, y + 1, z + 1), P(x, y + 1, z + 1)], shade(base, 1.2))
     const right = poly([P(x + 1, y, z), P(x + 1, y + 1, z), P(x + 1, y + 1, z + 1), P(x + 1, y, z + 1)], shade(base, 0.7))
     const front = poly([P(x, y, z), P(x + 1, y, z), P(x + 1, y + 1, z), P(x, y + 1, z)], base)
