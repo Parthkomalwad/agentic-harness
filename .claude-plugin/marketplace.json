@@ -15,66 +15,253 @@
       "source": "./plugins/core",
       "description": "Always-on base: lean-code rules and the pack switcher.",
       "category": "core",
-      "tags": ["core"],
-      "defaultEnabled": true
+      "tags": [
+        "core"
+      ],
+      "defaultEnabled": true,
+      "metadata": {
+        "intents": [
+          "too many plugins loaded",
+          "which pack should I use",
+          "set up the harness for this project",
+          "keep code minimal"
+        ]
+      }
     },
     {
       "name": "ui-pack",
       "source": "./plugins/ui-pack",
       "description": "UI without the AI look: DESIGN.md style, curated shadcn registries, build, screenshot, audit, fix.",
       "category": "ui",
-      "tags": ["ui", "design", "shadcn"],
+      "tags": [
+        "ui",
+        "design",
+        "shadcn"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "intents": [
+          "build a landing page",
+          "my UI looks generic or AI-made",
+          "redesign this page",
+          "need a dashboard or hero section",
+          "pick components"
+        ]
+      },
+      "relevance": {
+        "topic": "UI design",
+        "signals": {
+          "filesRead": [
+            "**/components.json",
+            "**/tailwind.config.*",
+            "**/*.tsx"
+          ],
+          "manifestDeps": [
+            {
+              "file": "[/\\\\]package\\.json$",
+              "pattern": "\"(react|next|tailwindcss)\"\\s*:"
+            }
+          ]
+        }
+      }
+    },
+    {
       "name": "motion-pack",
       "source": "./plugins/motion-pack",
       "description": "Motion design in code: launch videos and reels rendered frame by frame, with a self-critique loop.",
       "category": "media",
-      "tags": ["motion", "video", "animation"],
+      "tags": [
+        "motion",
+        "video",
+        "animation"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "intents": [
+          "make a launch video",
+          "product promo or showreel",
+          "animated explainer",
+          "motion graphics in code"
+        ]
+      },
+      "relevance": {
+        "topic": "motion video",
+        "signals": {
+          "cli": [
+            "ffmpeg"
+          ],
+          "filesRead": [
+            "**/render.mjs",
+            "**/beats.json"
+          ]
+        }
+      }
+    },
+    {
       "name": "docs-pack",
       "source": "./plugins/docs-pack",
       "description": "Create, restructure or update a README that explains the project clearly and looks good on GitHub.",
       "category": "docs",
-      "tags": ["readme", "docs"],
-      "defaultEnabled": false
+      "tags": [
+        "readme",
+        "docs"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "intents": [
+          "write a README",
+          "my README is unclear",
+          "improve project docs",
+          "make the repo look good on GitHub"
+        ]
+      },
+      "relevance": {
+        "topic": "READMEs",
+        "signals": {
+          "filesRead": [
+            "**/README.md"
+          ]
+        }
+      }
     },
     {
       "name": "deploy-pack",
       "source": "./plugins/deploy-pack",
       "description": "Deployment strategist: audits a project, recommends the cheapest fitting stack with cost estimates and an exit plan.",
       "category": "ops",
-      "tags": ["deploy", "hosting", "cost"],
-      "defaultEnabled": false
+      "tags": [
+        "deploy",
+        "hosting",
+        "cost"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "intents": [
+          "where should I deploy this",
+          "hosting is too expensive",
+          "S3 or R2",
+          "static site hosting",
+          "pick a database host"
+        ]
+      },
+      "relevance": {
+        "topic": "deployment",
+        "signals": {
+          "cli": [
+            "vercel",
+            "wrangler",
+            "netlify",
+            "flyctl",
+            "aws",
+            "terraform"
+          ],
+          "filesRead": [
+            "**/Dockerfile",
+            "**/wrangler.toml",
+            "**/vercel.json",
+            "**/render.yaml",
+            "**/fly.toml"
+          ]
+        }
+      }
     },
     {
       "name": "superpowers",
-      "source": { "source": "github", "repo": "obra/superpowers" },
+      "source": {
+        "source": "github",
+        "repo": "obra/superpowers"
+      },
       "description": "Upstream: brainstorm, plan, TDD, subagent execution and review methodology.",
       "category": "external",
-      "tags": ["methodology", "tdd"],
-      "defaultEnabled": false
+      "tags": [
+        "methodology",
+        "tdd"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "intents": [
+          "plan before coding",
+          "use TDD",
+          "structured development method",
+          "brainstorm a feature"
+        ]
+      }
     },
     {
       "name": "taste-skill",
-      "source": { "source": "github", "repo": "Leonxlnx/taste-skill" },
+      "source": {
+        "source": "github",
+        "repo": "Leonxlnx/taste-skill"
+      },
       "description": "Upstream: art direction for frontend work, image-to-code, redesign and style skills.",
       "category": "external",
-      "tags": ["ui", "design"],
-      "defaultEnabled": false
+      "tags": [
+        "ui",
+        "design"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "intents": [
+          "better visual taste",
+          "art direction for UI",
+          "turn a screenshot into code"
+        ]
+      }
     },
     {
       "name": "playwright-cli",
-      "source": { "source": "git-subdir", "url": "microsoft/playwright-cli", "path": "skills/playwright-cli" },
+      "source": {
+        "source": "git-subdir",
+        "url": "microsoft/playwright-cli",
+        "path": "skills/playwright-cli"
+      },
       "description": "Upstream: token-efficient browser automation. Needs `npm i -g @playwright/cli`.",
       "category": "external",
-      "tags": ["ui", "testing", "browser"],
-      "defaultEnabled": false
+      "tags": [
+        "ui",
+        "testing",
+        "browser"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "intents": [
+          "take screenshots of my site",
+          "test in a real browser",
+          "automate a browser"
+        ]
+      },
+      "relevance": {
+        "topic": "browser automation",
+        "signals": {
+          "cli": [
+            "playwright",
+            "playwright-cli"
+          ]
+        }
+      }
     },
     {
       "name": "web-design-guidelines",
-      "source": { "source": "git-subdir", "url": "vercel-labs/agent-skills", "path": "skills/web-design-guidelines" },
+      "source": {
+        "source": "git-subdir",
+        "url": "vercel-labs/agent-skills",
+        "path": "skills/web-design-guidelines"
+      },
       "description": "Upstream: Vercel's ~100-rule UI audit for accessibility, UX and performance.",
       "category": "external",
-      "tags": ["ui", "audit", "a11y"],
-      "defaultEnabled": false
+      "tags": [
+        "ui",
+        "audit",
+        "a11y"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "intents": [
+          "audit my UI",
+          "check accessibility",
+          "review UX"
+        ]
+      }
     }
   ]
 }

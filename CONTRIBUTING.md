@@ -80,9 +80,18 @@ Commit messages follow [Conventional Commits](https://www.conventionalcommits.or
      "description": "One sentence for the /plugin listing.",
      "category": "ui",
      "tags": ["ui", "audit"],
-     "defaultEnabled": false
+     "defaultEnabled": false,
+     "metadata": {
+       "intents": ["audit my UI", "check accessibility", "review UX"]
+     },
+     "relevance": {
+       "topic": "UI audits",
+       "signals": { "filesRead": ["**/*.tsx"] }
+     }
    }
    ```
+
+   `metadata.intents` is required (at least 3): the problems the pack solves, written the way a user would say them. The `packs` skill matches on these. `relevance.signals` is optional: files, commands or dependencies that suggest the pack.
 
 5. **Update the README** catalogue table, and add a preset to `templates/` if the pack is meant to be used with others.
 
