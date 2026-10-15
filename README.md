@@ -3,7 +3,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/hero-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="docs/assets/hero-light.svg">
-  <img src="docs/assets/hero-dark.svg" alt="The agentic-harness marketplace lists packs. A project switches some packs on in its own settings file, and packs that are off cost zero tokens." width="900">
+  <img src="docs/assets/hero-dark.svg" alt="The agentic-harness hub in the centre with eleven packs around it. Six packs are switched on for this project and linked to the hub; the rest are dimmed and cost zero tokens." width="900">
 </picture>
 
 <br>
@@ -11,10 +11,10 @@
 ### A plug-and-play catalogue for Claude Code. Describe your problem, get the right skills and agents, and pay nothing for the rest.
 
 [![validate](https://github.com/Parthkomalwad/agentic-harness/actions/workflows/validate.yml/badge.svg)](https://github.com/Parthkomalwad/agentic-harness/actions/workflows/validate.yml)
-[![License: MIT](https://img.shields.io/badge/license-MIT-2DD4BF?labelColor=0F1117)](LICENSE)
-[![Claude Code](https://img.shields.io/badge/Claude_Code-plugin_marketplace-2DD4BF?labelColor=0F1117)](https://code.claude.com/docs/en/plugins-reference)
-[![Packs](https://img.shields.io/badge/packs-11-2DD4BF?labelColor=0F1117)](#catalogue)
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-2DD4BF?labelColor=0F1117)](CONTRIBUTING.md)
+[![License: MIT](https://img.shields.io/badge/license-MIT-D97757?labelColor=1F1E1D)](LICENSE)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-plugin_marketplace-D97757?labelColor=1F1E1D)](https://code.claude.com/docs/en/plugins-reference)
+[![Packs](https://img.shields.io/badge/packs-11-D97757?labelColor=1F1E1D)](#catalogue)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-D97757?labelColor=1F1E1D)](CONTRIBUTING.md)
 
 [TL;DR](#tldr) ·
 [Use it](#use-it-in-three-steps) ·
