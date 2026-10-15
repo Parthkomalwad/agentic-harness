@@ -75,6 +75,24 @@ Then run `/reload-plugins`.
 | [`ui.json`](templates/ui.json) | `core`, `ui-pack` (and its dependencies) |
 | [`methodology.json`](templates/methodology.json) | `core`, `superpowers` |
 
+## Find the right pack
+
+You don't need to know the catalogue. With `core` on, describe the problem:
+
+```text
+I need to put this site online cheaply
+```
+
+The `packs` skill reads the catalogue, matches your problem against each pack's intents and your project's files, proposes the fewest packs that fit, and switches them on for this project after you agree.
+
+Each catalogue entry carries the index it matches on:
+
+| Field | What it holds |
+|---|---|
+| `metadata.intents` | Problems the pack solves, in a user's words |
+| `relevance.signals` | Files, commands and dependencies that suggest the pack. Claude Code can also show these as install tips |
+| `tags`, `category` | Grouping for search |
+
 ## Catalogue
 
 | Pack | Source | What it does |

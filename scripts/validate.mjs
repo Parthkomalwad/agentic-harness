@@ -10,8 +10,29 @@ const ALWAYS_ON = new Set(['core'])
 const errors = []
 const fail = (where, msg) => errors.push(`${where}: ${msg}`)
 
+// JSON.parse keeps the last of duplicate keys silently, which can hide a whole entry after a bad merge.
+const duplicateKeys = (text) => {
+  const dups = []
+  const stack = []
+  const re = /"((?:[^"\\]|\\.)*)"(\s*:)?|[{}\[\]]/g
+  for (let m; (m = re.exec(text)); ) {
+    const t = m[0]
+    if (t === '{') stack.push(new Set())
+    else if (t === '[') stack.push(null)
+    else if (t === '}' || t === ']') stack.pop()
+    else if (m[2] && stack.at(-1)) {
+      if (stack.at(-1).has(m[1])) dups.push(m[1])
+      stack.at(-1).add(m[1])
+    }
+  }
+  return dups
+}
+
 const readJson = (path) => {
-  try { return JSON.parse(readFileSync(path, 'utf8')) } catch (e) { fail(path, `invalid JSON (${e.message})`); return null }
+  const text = readFileSync(path, 'utf8')
+  const dups = duplicateKeys(text)
+  if (dups.length) fail(path, `duplicate keys: ${[...new Set(dups)].join(', ')}`)
+  try { return JSON.parse(text) } catch (e) { fail(path, `invalid JSON (${e.message})`); return null }
 }
 
 const frontmatter = (text) => {
@@ -36,6 +57,7 @@ if (market) {
     seen.add(p.name)
     if (!p.description) fail(where, 'missing description')
     if (!p.category) fail(where, 'missing category')
+    if ((p.metadata?.intents ?? []).length < 3) fail(where, 'needs at least 3 metadata.intents (problems this pack solves, in the user\'s words)')
     if (p.defaultEnabled !== false && !ALWAYS_ON.has(p.name)) fail(where, 'packs must set "defaultEnabled": false')
 
     if (typeof p.source !== 'string') continue // external sources are checked at install time
