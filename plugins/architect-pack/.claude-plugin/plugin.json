@@ -1,0 +1,10 @@
+{
+  "name": "architect-pack",
+  "displayName": "Architect Pack",
+  "version": "0.1.0",
+  "description": "System and product design partner: requirements, options, a Well-Architected pillar review, and design artifacts. Also works as an uploaded skill in claude.ai.",
+  "author": { "name": "Parth Komalwad", "url": "https://github.com/Parthkomalwad" },
+  "repository": "https://github.com/Parthkomalwad/agentic-harness",
+  "license": "MIT",
+  "keywords": ["architecture", "system-design", "well-architected", "product"]
+}

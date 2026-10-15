@@ -1,0 +1,10 @@
+{
+  "name": "council-pack",
+  "displayName": "Council Pack",
+  "version": "0.1.0",
+  "description": "An LLM council made of Claude agents: independent answers, anonymous peer ranking, and a chairman synthesis.",
+  "author": { "name": "Parth Komalwad", "url": "https://github.com/Parthkomalwad" },
+  "repository": "https://github.com/Parthkomalwad/agentic-harness",
+  "license": "MIT",
+  "keywords": ["council", "decision", "review", "multi-agent"]
+}
