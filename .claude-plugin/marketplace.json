@@ -37,6 +37,14 @@
       "defaultEnabled": false
     },
     {
+      "name": "deploy-pack",
+      "source": "./plugins/deploy-pack",
+      "description": "Deployment strategist: audits a project, recommends the cheapest fitting stack with cost estimates and an exit plan.",
+      "category": "ops",
+      "tags": ["deploy", "hosting", "cost"],
+      "defaultEnabled": false
+    },
+    {
       "name": "superpowers",
       "source": { "source": "github", "repo": "obra/superpowers" },
       "description": "Upstream: brainstorm, plan, TDD, subagent execution and review methodology.",
