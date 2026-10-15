@@ -55,6 +55,15 @@ if (market) {
       }
     }
 
+    const provFile = join(dir, 'providers.json')
+    if (existsSync(provFile)) {
+      const prov = readJson(provFile)
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(prov?.checked ?? '')) fail(provFile, 'missing "checked" date (YYYY-MM-DD)')
+      for (const x of prov?.providers ?? []) {
+        for (const key of ['name', 'kind', 'free', 'paid', 'bestFor', 'pricingUrl']) if (!x[key]) fail(provFile, `provider "${x.name}" missing ${key}`)
+      }
+    }
+
     const skillsDir = join(dir, 'skills')
     if (!existsSync(skillsDir)) continue
     for (const skill of readdirSync(skillsDir)) {
