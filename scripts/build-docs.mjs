@@ -57,6 +57,51 @@ const THEMES = {
 const HERO = packs.filter((p) => p.metadata?.hero).map((p) => [p.name, p.metadata.hero === 'on'])
 const W = 900, H = 420, CX = 450, CY = 205, RX = 330, RY = 135
 
+// Original voxel mascot: a pixel grid extruded into isometric cubes.
+// A = antenna, B = body, E = eye. Front face points down-left.
+const BOT = [
+  '....A....',
+  '....A....',
+  '..BBBBB..',
+  '.BBBBBBB.',
+  '.BEEBEEB.',
+  '.BBBBBBB.',
+  'BBBBBBBBB',
+  '.BB...BB.',
+  '.BB...BB.',
+]
+const DEPTH = 3
+
+function shade(hex, k) {
+  const n = parseInt(hex.slice(1), 16)
+  const c = [n >> 16, (n >> 8) & 255, n & 255].map((v) => Math.max(0, Math.min(255, Math.round(v * k))))
+  return '#' + c.map((v) => v.toString(16).padStart(2, '0')).join('')
+}
+
+function voxelBot(t, cx, cy) {
+  // Cabinet projection: front faces the viewer, depth recedes up and right.
+  const s = 13, d = s * 0.5
+  const W0 = BOT[0].length, H0 = BOT.length
+  const cubes = []
+  BOT.forEach((row, r) => [...row].forEach((ch, x) => {
+    if (ch === '.') return
+    const y = H0 - 1 - r
+    for (let z = 0; z < DEPTH; z++) cubes.push({ x, y, z, ch: ch === 'E' && z > 0 ? 'B' : ch })
+  }))
+  // Paint far to near: back layers first, left to right, bottom to top.
+  cubes.sort((a, b) => b.z - a.z || a.x - b.x || a.y - b.y)
+  const ox = cx - (W0 * s + DEPTH * d) / 2, oy = cy + (H0 * s - DEPTH * d) / 2
+  const P = (x, y, z) => [ox + x * s + z * d, oy - y * s - z * d]
+  const poly = (pts, fill) => `<polygon points="${pts.map(([a, b]) => a.toFixed(1) + ',' + b.toFixed(1)).join(' ')}" fill="${fill}" stroke="${fill}" stroke-width="0.6"/>`
+  return cubes.map(({ x, y, z, ch }) => {
+    const base = ch === 'E' ? '#141312' : ch === 'A' ? shade(t.accent, 1.12) : t.accent
+    const top = poly([P(x, y + 1, z), P(x + 1, y + 1, z), P(x + 1, y + 1, z + 1), P(x, y + 1, z + 1)], shade(base, 1.2))
+    const right = poly([P(x + 1, y, z), P(x + 1, y + 1, z), P(x + 1, y + 1, z + 1), P(x + 1, y, z + 1)], shade(base, 0.7))
+    const front = poly([P(x, y, z), P(x + 1, y, z), P(x + 1, y + 1, z), P(x, y + 1, z)], base)
+    return top + right + front
+  }).join('')
+}
+
 function hero(t) {
   const nodes = HERO.map(([name, on], i) => {
     const a = -Math.PI / 2 + (i / HERO.length) * 2 * Math.PI
@@ -70,21 +115,17 @@ function hero(t) {
     <circle cx="${f(n.x - n.w / 2 + 15)}" cy="${f(n.y)}" r="4" fill="${n.on ? t.accent : 'none'}" stroke="${n.on ? t.accent : t.off}"/>
     <text x="${f(n.x - n.w / 2 + 25)}" y="${f(n.y + 4.5)}" font-size="13" fill="${n.on ? t.text : t.off}">${n.name}</text>
   </g>`).join('\n  ')
-  const dots = [0, 1, 2, 3, 4, 5].map((i) => {
-    const a = (i / 6) * 2 * Math.PI
-    return `<circle cx="${f(CX + 40 * Math.cos(a))}" cy="${f(CY + 40 * Math.sin(a))}" r="4" fill="${t.accent}"/>`
-  }).join('')
+  const bot = voxelBot(t, CX, CY + 8)
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
   <rect width="${W}" height="${H}" rx="18" fill="${t.bg}"/>
   <ellipse cx="${CX}" cy="${CY}" rx="${RX}" ry="${RY}" fill="none" stroke="${t.line}" stroke-dasharray="2 6"/>
   ${spokes}
-  <circle cx="${CX}" cy="${CY}" r="62" fill="${t.panel}" stroke="${t.accent}" stroke-width="2"/>
-  <circle cx="${CX}" cy="${CY}" r="40" fill="none" stroke="${t.accent}" stroke-opacity="0.35"/>
-  ${dots}
-  <circle cx="${CX}" cy="${CY}" r="16" fill="${t.accent}"/>
+  <ellipse cx="${CX}" cy="${CY + 62}" rx="70" ry="14" fill="${t.accent}" opacity="0.12"/>
+  <circle cx="${CX}" cy="${CY}" r="92" fill="${t.bg}"/>
+  ${bot}
   ${pills}
-  <rect x="${CX - 82}" y="${CY + 74}" width="164" height="24" rx="12" fill="${t.bg}"/>
-  <text x="${CX}" y="${CY + 90}" font-size="15" font-weight="700" fill="${t.text}" text-anchor="middle">agentic-harness</text>
+  <rect x="${CX - 82}" y="${CY + 80}" width="164" height="24" rx="12" fill="${t.bg}"/>
+  <text x="${CX}" y="${CY + 96}" font-size="15" font-weight="700" fill="${t.text}" text-anchor="middle">agentic-harness</text>
   <text x="32" y="${H - 22}" font-size="12" fill="${t.muted}"><tspan fill="${t.accent}">●</tspan> on in this project: ${HERO.filter((p) => p[1]).length}</text>
   <text x="${W - 32}" y="${H - 22}" font-size="12" fill="${t.muted}" text-anchor="end">packs that are off cost <tspan fill="${t.accent}" font-weight="700">0 tokens</tspan></text>
 </svg>
