@@ -1,0 +1,11 @@
+{
+  "name": "motion-pack",
+  "displayName": "Motion Pack",
+  "version": "0.1.0",
+  "description": "Motion design studio in code: launch videos, product reels and showreels rendered frame by frame with a self-critique loop.",
+  "author": { "name": "Parth Komalwad", "url": "https://github.com/Parthkomalwad" },
+  "repository": "https://github.com/Parthkomalwad/agentic-harness",
+  "license": "MIT",
+  "keywords": ["motion", "video", "animation", "render"],
+  "dependencies": ["playwright-cli"]
+}
