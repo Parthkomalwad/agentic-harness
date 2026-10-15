@@ -4,6 +4,9 @@ All notable changes. Each pack also carries its own `version` in `plugins/<pack>
 
 ## Unreleased
 
+### Fixed
+- The band mod never loaded: Claude Code reserves the plugin name `core` for its own layer. The mod now ships as its own always-on pack, `harness-band`. `core` 0.2.1 keeps the skills.
+
 ### Added
 - `deploy-pack` 0.2.0: `devops` skill for CI/CD, infrastructure as code, containers, environments, rollout and rollback.
 - `architect-pack` 0.2.0: deployment and operations phase that hands off to deploy-pack, with a compact fallback for claude.ai.

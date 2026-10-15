@@ -6,7 +6,7 @@ import { join } from 'node:path'
 const KEBAB = /^[a-z0-9]+(-[a-z0-9]+)*$/
 const RESERVED = /^(claude|anthropic|anthropics|cc-plugin)-|^(claude|anthropic|anthropics|claude-code|claude-mods)$/
 const MAX_DESCRIPTION = 300 // skill descriptions load every session, keep them short
-const ALWAYS_ON = new Set(['core'])
+const ALWAYS_ON = new Set(['core', 'harness-band'])
 const errors = []
 const fail = (where, msg) => errors.push(`${where}: ${msg}`)
 

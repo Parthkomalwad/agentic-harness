@@ -8,7 +8,8 @@ Every pack, grouped. All start off except `core`. Install with `/plugin install 
 
 | Pack | What it does | Try |
 |---|---|---|
-| `core` (**on**) | Always-on base: lean-code rules, the packs skill that finds and enables the right packs, and a band above the prompt showing active packs, context and cost. |  |
+| `core` (**on**) | Always-on base: lean-code rules, and the packs skill that finds and enables the right packs for your problem. |  |
+| `harness-band` (**on**) | Always-on mod: a line above the prompt with the harness packs that are on, context use and session cost, plus the instant /harness command. | `/harness` |
 | `system-one` | Cheap small models for typed judgments (TypeSafe Jev) and extraction or summaries (ScaleDown), so the big model only decides. | `summarize this 40 page PDF cheaply before you read it` |
 | `memory-pack` | Project memory as Markdown committed to the repo, so it follows you across machines and cloud sessions. A small index loads at session start. | `remember that we deploy from the release branch` |
 

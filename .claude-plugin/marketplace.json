@@ -13,7 +13,7 @@
     {
       "name": "core",
       "source": "./plugins/core",
-      "description": "Always-on base: lean-code rules, the packs skill that finds and enables the right packs, and a band above the prompt showing active packs, context and cost.",
+      "description": "Always-on base: lean-code rules, and the packs skill that finds and enables the right packs for your problem.",
       "category": "core",
       "tags": [
         "core"
@@ -28,6 +28,27 @@
         ],
         "group": "Foundation",
         "hero": "on"
+      }
+    },
+    {
+      "name": "harness-band",
+      "source": "./plugins/harness-band",
+      "description": "Always-on mod: a line above the prompt with the harness packs that are on, context use and session cost, plus the instant /harness command.",
+      "category": "foundation",
+      "tags": [
+        "mod",
+        "status",
+        "context"
+      ],
+      "defaultEnabled": true,
+      "metadata": {
+        "group": "Foundation",
+        "try": "/harness",
+        "intents": [
+          "which packs are on",
+          "how full is my context",
+          "what has this session cost"
+        ]
       }
     },
     {
