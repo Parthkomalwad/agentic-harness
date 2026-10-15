@@ -29,6 +29,11 @@
       "description": "Motion design in code: launch videos and reels rendered frame by frame, with a self-critique loop.",
       "category": "media",
       "tags": ["motion", "video", "animation"],
+      "name": "docs-pack",
+      "source": "./plugins/docs-pack",
+      "description": "Create, restructure or update a README that explains the project clearly and looks good on GitHub.",
+      "category": "docs",
+      "tags": ["readme", "docs"],
       "defaultEnabled": false
     },
     {

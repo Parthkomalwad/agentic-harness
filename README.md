@@ -82,6 +82,7 @@ Then run `/reload-plugins`.
 | `core` | this repo, **on** | Lean-code rules, and the `packs` skill that switches packs on and off |
 | `ui-pack` | this repo | UI without the AI look: DESIGN.md style, curated shadcn registries ([Planes](https://useplanes.com), [Arc](https://uiarc.dev), [Space UI](https://spaceui.one), [Componentry](https://componentry.dev), [Skecher](https://skecher-ui.com)), build, screenshot, audit, fix. Pulls in `taste-skill`, `playwright-cli` and `web-design-guidelines` |
 | `motion-pack` | this repo | Launch videos, product reels and showreels rendered from code: `seek(t)` renderer, springs, beat grid, contact-sheet critique loop. Method adapted from the guide *How to Build a Motion Design Studio With Opus 5.5* (raycfu) |
+| `docs-pack` | this repo | `readme` skill: create, restructure or update a README with a hero, clear tagline, quick start and checked links |
 | `taste-skill` | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | Art direction for UI work: image-to-code, redesign and style skills |
 | `playwright-cli` | [microsoft/playwright-cli](https://github.com/microsoft/playwright-cli) | Token-efficient browser automation for screenshots and checks. Needs `npm i -g @playwright/cli` |
 | `web-design-guidelines` | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | About 100 rules for auditing UI: accessibility, UX, performance |
