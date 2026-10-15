@@ -1,0 +1,63 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  catalogue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Catalogue rules
+        run: node scripts/validate.mjs
+
+  commit-policy:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: No AI attribution in commits or PR text
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          pattern='Co-Authored-By:.*(Claude|Anthropic|noreply@anthropic\.com)|Generated with \[?Claude'
+          if git log --format=%B origin/${{ github.base_ref }}..HEAD | grep -Eiq "$pattern"; then
+            echo "::error::A commit message credits Claude or Anthropic. Remove the trailer and force-push the branch."
+            exit 1
+          fi
+          if printf '%s
+%s' "$PR_TITLE" "$PR_BODY" | grep -Eiq "$pattern"; then
+            echo "::error::The PR title or description credits Claude or Anthropic."
+            exit 1
+          fi
+          echo "commit policy ok"
+
+  claude-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code
+      - name: Validate marketplace
+        run: claude plugin validate .
+      - name: Validate local packs (strict)
+        run: |
+          for dir in plugins/*/; do
+            echo "::group::$dir"
+            claude plugin validate "$dir" --strict
+            echo "::endgroup::"
+          done

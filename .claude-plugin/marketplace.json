@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "agentic-harness",
+  "description": "A plug-and-play catalogue of Claude Code packs: skills, agents, workflows, hooks and mods. Enable only what a project needs.",
+  "owner": {
+    "name": "Parth Komalwad",
+    "url": "https://github.com/Parthkomalwad"
+  },
+  "metadata": {
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "core",
+      "source": "./plugins/core",
+      "description": "Always-on base: lean-code rules and the pack switcher.",
+      "category": "core",
+      "tags": ["core"],
+      "defaultEnabled": true
+    },
+    {
+      "name": "superpowers",
+      "source": { "source": "github", "repo": "obra/superpowers" },
+      "description": "Upstream: brainstorm, plan, TDD, subagent execution and review methodology.",
+      "category": "external",
+      "tags": ["methodology", "tdd"],
+      "defaultEnabled": false
+    },
+    {
+      "name": "taste-skill",
+      "source": { "source": "github", "repo": "Leonxlnx/taste-skill" },
+      "description": "Upstream: art direction for frontend work, image-to-code, redesign and style skills.",
+      "category": "external",
+      "tags": ["ui", "design"],
+      "defaultEnabled": false
+    },
+    {
+      "name": "playwright-cli",
+      "source": { "source": "git-subdir", "url": "microsoft/playwright-cli", "path": "skills/playwright-cli" },
+      "description": "Upstream: token-efficient browser automation. Needs `npm i -g @playwright/cli`.",
+      "category": "external",
+      "tags": ["ui", "testing", "browser"],
+      "defaultEnabled": false
+    },
+    {
+      "name": "web-design-guidelines",
+      "source": { "source": "git-subdir", "url": "vercel-labs/agent-skills", "path": "skills/web-design-guidelines" },
+      "description": "Upstream: Vercel's ~100-rule UI audit for accessibility, UX and performance.",
+      "category": "external",
+      "tags": ["ui", "audit", "a11y"],
+      "defaultEnabled": false
+    }
+  ]
+}

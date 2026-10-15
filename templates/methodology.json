@@ -1,0 +1,6 @@
+{
+  "enabledPlugins": {
+    "core@agentic-harness": true,
+    "superpowers@agentic-harness": true
+  }
+}

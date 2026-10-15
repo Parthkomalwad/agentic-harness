@@ -1,0 +1,8 @@
+{
+  "enabledPlugins": {
+    "core@agentic-harness": true,
+    "taste-skill@agentic-harness": true,
+    "playwright-cli@agentic-harness": true,
+    "web-design-guidelines@agentic-harness": true
+  }
+}
