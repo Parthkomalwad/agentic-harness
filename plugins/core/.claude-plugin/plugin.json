@@ -1,7 +1,7 @@
 {
   "name": "core",
   "displayName": "Harness Core",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Always-on base for agentic-harness: lean-code rules and the pack switcher.",
   "author": { "name": "Parth Komalwad", "url": "https://github.com/Parthkomalwad" },
   "repository": "https://github.com/Parthkomalwad/agentic-harness",

@@ -13,7 +13,7 @@
     {
       "name": "core",
       "source": "./plugins/core",
-      "description": "Always-on base: lean-code rules, and the packs skill that finds and enables the right packs for your problem.",
+      "description": "Always-on base: lean-code rules, the packs skill that finds and enables the right packs, and a band above the prompt showing active packs, context and cost.",
       "category": "core",
       "tags": [
         "core"
