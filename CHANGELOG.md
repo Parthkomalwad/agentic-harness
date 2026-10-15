@@ -5,6 +5,8 @@ All notable changes. Each pack also carries its own `version` in `plugins/<pack>
 ## Unreleased
 
 ### Added
+- `deploy-pack` 0.2.0: `devops` skill for CI/CD, infrastructure as code, containers, environments, rollout and rollback.
+- `architect-pack` 0.2.0: deployment and operations phase that hands off to deploy-pack, with a compact fallback for claude.ai.
 - `ui-pack` 0.2.0: `ux-psychology` skill with attention and reading patterns, laws of UX, and layout playbooks per use case; wired into `ui-build`.
 - `memory-pack`: repo-committed Markdown memory with a SessionStart index loader, and an upstream entry for claude-mem (as `session-mem`).
 - `scripts/cloud-setup.sh` and a README section for installing packs in cloud sessions.

@@ -141,11 +141,11 @@
     {
       "name": "deploy-pack",
       "source": "./plugins/deploy-pack",
-      "description": "Deployment strategist: audits a project, recommends the cheapest fitting stack with cost estimates and an exit plan.",
+      "description": "Deployment strategist and DevOps: audits a project, recommends the cheapest fitting stack with costs, then sets up CI/CD, infrastructure as code, environments, rollout and rollback.",
       "category": "ops",
       "tags": [
         "deploy",
-        "hosting",
+        "devops",
         "cost"
       ],
       "defaultEnabled": false,
@@ -155,7 +155,11 @@
           "hosting is too expensive",
           "S3 or R2",
           "static site hosting",
-          "pick a database host"
+          "pick a database host",
+          "set up CI/CD",
+          "write a Dockerfile and pipeline",
+          "Terraform or CDK for my app",
+          "how do I roll back a bad deploy"
         ],
         "group": "Ship",
         "try": "where should I deploy this, cheaply?",
@@ -208,7 +212,7 @@
     {
       "name": "architect-pack",
       "source": "./plugins/architect-pack",
-      "description": "System and product design partner: requirements, options, Well-Architected pillar review, design artifacts. Also uploadable to claude.ai.",
+      "description": "System and product design partner: requirements, options, Well-Architected pillar review, deployment plan, design artifacts. Also uploadable to claude.ai.",
       "category": "thinking",
       "tags": [
         "architecture",
