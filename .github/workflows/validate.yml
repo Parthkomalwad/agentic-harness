@@ -36,8 +36,7 @@ jobs:
             echo "::error::A commit message credits Claude or Anthropic. Remove the trailer and force-push the branch."
             exit 1
           fi
-          if printf '%s
-%s' "$PR_TITLE" "$PR_BODY" | grep -Eiq "$pattern"; then
+          if printf '%s %s' "$PR_TITLE" "$PR_BODY" | grep -Eiq "$pattern"; then
             echo "::error::The PR title or description credits Claude or Anthropic."
             exit 1
           fi
