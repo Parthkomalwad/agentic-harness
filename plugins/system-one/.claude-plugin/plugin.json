@@ -1,0 +1,17 @@
+{
+  "name": "system-one",
+  "displayName": "System One",
+  "version": "0.1.0",
+  "description": "Cheap small models for typed judgments (TypeSafe Jev) and extraction or summaries (ScaleDown), so the big model only decides.",
+  "author": {
+    "name": "Parth Komalwad",
+    "url": "https://github.com/Parthkomalwad"
+  },
+  "repository": "https://github.com/Parthkomalwad/agentic-harness",
+  "license": "MIT",
+  "keywords": [
+    "jev",
+    "scaledown",
+    "cost"
+  ]
+}

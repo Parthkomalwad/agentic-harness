@@ -1,0 +1,17 @@
+{
+  "name": "glassbox",
+  "displayName": "Glassbox",
+  "version": "0.1.0",
+  "description": "Open the black box: record why each decision was made, map how the code flows, and quiz yourself before accepting a change.",
+  "author": {
+    "name": "Parth Komalwad",
+    "url": "https://github.com/Parthkomalwad"
+  },
+  "repository": "https://github.com/Parthkomalwad/agentic-harness",
+  "license": "MIT",
+  "keywords": [
+    "transparency",
+    "decisions",
+    "learning"
+  ]
+}

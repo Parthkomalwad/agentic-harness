@@ -1,0 +1,17 @@
+{
+  "name": "test-pack",
+  "displayName": "Test Pack",
+  "version": "0.1.0",
+  "description": "Write the tests a change needs, find flaky tests, and loop on fixes until the suite is green.",
+  "author": {
+    "name": "Parth Komalwad",
+    "url": "https://github.com/Parthkomalwad"
+  },
+  "repository": "https://github.com/Parthkomalwad/agentic-harness",
+  "license": "MIT",
+  "keywords": [
+    "testing",
+    "tdd",
+    "ci"
+  ]
+}

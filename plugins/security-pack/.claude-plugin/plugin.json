@@ -1,0 +1,17 @@
+{
+  "name": "security-pack",
+  "displayName": "Security Pack",
+  "version": "0.1.0",
+  "description": "Secret and dependency checks, an OWASP review of a diff, and a guard that asks before dangerous shell commands run.",
+  "author": {
+    "name": "Parth Komalwad",
+    "url": "https://github.com/Parthkomalwad"
+  },
+  "repository": "https://github.com/Parthkomalwad/agentic-harness",
+  "license": "MIT",
+  "keywords": [
+    "security",
+    "owasp",
+    "guard"
+  ]
+}

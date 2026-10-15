@@ -226,6 +226,262 @@
       }
     },
     {
+      "name": "glassbox",
+      "source": "./plugins/glassbox",
+      "description": "Open the black box: record why each decision was made, map how the code flows, and quiz yourself before accepting a change.",
+      "category": "decide",
+      "tags": [
+        "transparency",
+        "decisions",
+        "learning"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "group": "Decide",
+        "try": "explain what you just built and quiz me on it",
+        "intents": [
+          "I do not understand the code Claude wrote",
+          "why was this decision made",
+          "explain how this code flows",
+          "quiz me before I accept this change"
+        ]
+      }
+    },
+    {
+      "name": "system-one",
+      "source": "./plugins/system-one",
+      "description": "Cheap small models for typed judgments (TypeSafe Jev) and extraction or summaries (ScaleDown), so the big model only decides.",
+      "category": "foundation",
+      "tags": [
+        "jev",
+        "scaledown",
+        "cost"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "group": "Foundation",
+        "try": "summarize this 40 page PDF cheaply before you read it",
+        "intents": [
+          "this file is too big to read",
+          "make a cheap yes or no judgment",
+          "classify these items",
+          "reduce token cost"
+        ]
+      }
+    },
+    {
+      "name": "research-pack",
+      "source": "./plugins/research-pack",
+      "description": "Research across the web, GitHub, Reddit, X and YouTube with Agent Reach, cross-checked and cited.",
+      "category": "decide",
+      "tags": [
+        "research",
+        "agent-reach",
+        "sources"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "group": "Decide",
+        "try": "research what developers say about Bun vs Node in 2026",
+        "intents": [
+          "research this topic",
+          "what are people saying about X",
+          "find sources and cite them",
+          "compare tools with real opinions"
+        ]
+      },
+      "relevance": {
+        "topic": "research",
+        "signals": {
+          "cli": [
+            "agent-reach"
+          ]
+        }
+      }
+    },
+    {
+      "name": "orchestrator",
+      "source": "./plugins/orchestrator",
+      "description": "Sweep a codebase with a dynamic workflow: cheap agents scan, stronger agents fix in isolated copies, a verifier keeps only proven changes.",
+      "category": "build",
+      "tags": [
+        "workflow",
+        "multi-agent",
+        "sweep"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "group": "Build",
+        "try": "/orchestrator:sweep missing auth checks in src/routes",
+        "intents": [
+          "fix this across the whole codebase",
+          "audit every file for X",
+          "large refactor or migration",
+          "run many agents in parallel"
+        ]
+      }
+    },
+    {
+      "name": "test-pack",
+      "source": "./plugins/test-pack",
+      "description": "Write the tests a change needs, find flaky tests, and loop on fixes until the suite is green.",
+      "category": "ship",
+      "tags": [
+        "testing",
+        "tdd",
+        "ci"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "group": "Ship",
+        "try": "write tests for the change I just made",
+        "intents": [
+          "write tests for this",
+          "my tests are flaky",
+          "CI is red, make it green",
+          "what is untested here"
+        ]
+      },
+      "relevance": {
+        "topic": "testing",
+        "signals": {
+          "cli": [
+            "pytest",
+            "jest",
+            "vitest",
+            "go",
+            "cargo"
+          ]
+        }
+      }
+    },
+    {
+      "name": "security-pack",
+      "source": "./plugins/security-pack",
+      "description": "Secret and dependency checks, an OWASP review of a diff, and a guard that asks before dangerous shell commands run.",
+      "category": "ship",
+      "tags": [
+        "security",
+        "owasp",
+        "guard"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "group": "Ship",
+        "try": "security review my diff before I push",
+        "intents": [
+          "is this code secure",
+          "check for leaked secrets",
+          "audit my dependencies",
+          "stop dangerous commands"
+        ]
+      }
+    },
+    {
+      "name": "db-pack",
+      "source": "./plugins/db-pack",
+      "description": "Schema design, safe zero-downtime migrations, and index review for Postgres, MySQL and SQLite.",
+      "category": "build",
+      "tags": [
+        "database",
+        "migrations",
+        "postgres"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "group": "Build",
+        "try": "design the schema for a multi-tenant booking app",
+        "intents": [
+          "design my database schema",
+          "write a safe migration",
+          "this query is slow",
+          "add an index"
+        ]
+      },
+      "relevance": {
+        "topic": "databases",
+        "signals": {
+          "cli": [
+            "psql",
+            "prisma",
+            "drizzle-kit",
+            "alembic"
+          ],
+          "filesRead": [
+            "**/schema.prisma",
+            "**/migrations/**",
+            "**/*.sql"
+          ]
+        }
+      }
+    },
+    {
+      "name": "observability-pack",
+      "source": "./plugins/observability-pack",
+      "description": "Add structured logs, health checks, metrics and error tracking so production problems are visible and debuggable.",
+      "category": "ship",
+      "tags": [
+        "observability",
+        "logging",
+        "opentelemetry"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "group": "Ship",
+        "try": "add logging and error tracking to this API",
+        "intents": [
+          "I cannot debug production",
+          "add logging",
+          "add monitoring and alerts",
+          "set up error tracking"
+        ]
+      }
+    },
+    {
+      "name": "ship-pack",
+      "source": "./plugins/ship-pack",
+      "description": "Branch, commit, open a PR and write release notes the way this repo wants, following its CLAUDE.md and CONTRIBUTING rules.",
+      "category": "ship",
+      "tags": [
+        "git",
+        "pull-request",
+        "release"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "group": "Ship",
+        "try": "commit this and open a PR",
+        "intents": [
+          "commit and open a PR",
+          "write release notes",
+          "what branch name should I use",
+          "prepare a release"
+        ]
+      }
+    },
+    {
+      "name": "launch-pack",
+      "source": "./plugins/launch-pack",
+      "description": "Turn a finished project into a launch: README polish, a launch video, a blog post and social posts, all from the real code.",
+      "category": "ship",
+      "tags": [
+        "launch",
+        "marketing",
+        "blog"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "group": "Ship",
+        "try": "help me launch this project",
+        "intents": [
+          "help me launch this project",
+          "write a blog post about my repo",
+          "write a launch tweet",
+          "announce my release"
+        ]
+      }
+    },
+    {
       "name": "superpowers",
       "source": {
         "source": "github",

@@ -1,0 +1,17 @@
+{
+  "name": "launch-pack",
+  "displayName": "Launch Pack",
+  "version": "0.1.0",
+  "description": "Turn a finished project into a launch: README polish, a launch video, a blog post and social posts, all from the real code.",
+  "author": {
+    "name": "Parth Komalwad",
+    "url": "https://github.com/Parthkomalwad"
+  },
+  "repository": "https://github.com/Parthkomalwad/agentic-harness",
+  "license": "MIT",
+  "keywords": [
+    "launch",
+    "marketing",
+    "blog"
+  ]
+}
