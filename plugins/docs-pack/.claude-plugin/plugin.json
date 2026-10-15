@@ -1,0 +1,10 @@
+{
+  "name": "docs-pack",
+  "displayName": "Docs Pack",
+  "version": "0.1.0",
+  "description": "Create, restructure or update a README so a visitor understands what the project does in ten seconds.",
+  "author": { "name": "Parth Komalwad", "url": "https://github.com/Parthkomalwad" },
+  "repository": "https://github.com/Parthkomalwad/agentic-harness",
+  "license": "MIT",
+  "keywords": ["readme", "docs", "github"]
+}
