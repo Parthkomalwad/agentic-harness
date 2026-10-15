@@ -1,0 +1,4 @@
+{
+  "description": "agentic-harness band: active packs, context use and session cost above the prompt",
+  "modules": ["./band.js"]
+}

@@ -62,6 +62,8 @@ deploy-pack    "where should I deploy this"                   cost-ranked hostin
 Enable both for this project? (y/n)
 ```
 
+**See what is on.** `core` draws a band above the prompt with the harness packs that are on, context use and session cost. `/harness` prints the same line, even while Claude is working.
+
 **3. Say yes.** It writes `.claude/settings.json` in that project. Run `/reload-plugins`, then ask for the work:
 
 ```text
@@ -86,7 +88,7 @@ Prefer to choose by hand? Copy a preset from [`templates/`](templates/) into `.c
 
 | Pack | What it does | Try |
 |---|---|---|
-| `core` (**on**) | Always-on base: lean-code rules, and the packs skill that finds and enables the right packs for your problem. |  |
+| `core` (**on**) | Always-on base: lean-code rules, the packs skill that finds and enables the right packs, and a band above the prompt showing active packs, context and cost. |  |
 | `system-one` | Cheap small models for typed judgments (TypeSafe Jev) and extraction or summaries (ScaleDown), so the big model only decides. | `summarize this 40 page PDF cheaply before you read it` |
 
 ### Build
@@ -180,7 +182,6 @@ More in [docs/claude-code-primitives.md](docs/claude-code-primitives.md).
 
 | Item | Purpose |
 |---|---|
-| Harness band mod | A live strip in Claude Code showing active packs, context use and session cost, plus an instant `/packs` toggle |
 | More upstream entries | Remotion and HyperFrames skills for motion-pack, Agent Reach as a plugin when it ships one |
 | Pack evals in CI | Run the eval suites on every release once an API budget is set |
 
