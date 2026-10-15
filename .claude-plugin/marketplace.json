@@ -270,6 +270,36 @@
       }
     },
     {
+      "name": "memory-pack",
+      "source": "./plugins/memory-pack",
+      "description": "Project memory as Markdown committed to the repo, so it follows you across machines and cloud sessions. A small index loads at session start.",
+      "category": "foundation",
+      "tags": [
+        "memory",
+        "context",
+        "notes"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "group": "Foundation",
+        "try": "remember that we deploy from the release branch",
+        "intents": [
+          "remember this for next time",
+          "what did we decide earlier",
+          "Claude keeps forgetting project rules",
+          "keep context across sessions"
+        ]
+      },
+      "relevance": {
+        "topic": "project memory",
+        "signals": {
+          "filesRead": [
+            "**/.claude/memory/**"
+          ]
+        }
+      }
+    },
+    {
       "name": "research-pack",
       "source": "./plugins/research-pack",
       "description": "Research across the web, GitHub, Reddit, X and YouTube with Agent Reach, cross-checked and cited.",
@@ -584,6 +614,28 @@
           "review UX"
         ],
         "group": "Upstream"
+      }
+    },
+    {
+      "name": "session-mem",
+      "source": {
+        "source": "github",
+        "repo": "thedotmack/claude-mem"
+      },
+      "description": "Upstream: automatic session memory with compression and semantic search in a local database. Local only, so it does not reach cloud sessions.",
+      "category": "external",
+      "tags": [
+        "memory",
+        "search"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "group": "Upstream",
+        "intents": [
+          "automatic memory of past sessions",
+          "search what Claude did before",
+          "persistent memory across sessions"
+        ]
       }
     }
   ]

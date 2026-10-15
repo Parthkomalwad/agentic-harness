@@ -13,13 +13,14 @@
 [![validate](https://github.com/Parthkomalwad/agentic-harness/actions/workflows/validate.yml/badge.svg)](https://github.com/Parthkomalwad/agentic-harness/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-D97757?labelColor=1F1E1D)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-plugin_marketplace-D97757?labelColor=1F1E1D)](https://code.claude.com/docs/en/plugins-reference)
-[![Packs](https://img.shields.io/badge/packs-21-D97757?labelColor=1F1E1D)](#catalogue)
+[![Packs](https://img.shields.io/badge/packs-23-D97757?labelColor=1F1E1D)](#catalogue)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-D97757?labelColor=1F1E1D)](CONTRIBUTING.md)
 
 [TL;DR](#tldr) ·
 [Use it](#use-it-in-three-steps) ·
 [Catalogue](#catalogue) ·
 [claude.ai](#use-skills-in-claudeai-and-claude-desktop) ·
+[Cloud](#use-it-in-cloud-sessions) ·
 [How it works](#how-it-works) ·
 [Contributing](CONTRIBUTING.md)
 
@@ -90,6 +91,7 @@ Prefer to choose by hand? Copy a preset from [`templates/`](templates/) into `.c
 |---|---|---|
 | `core` (**on**) | Always-on base: lean-code rules, the packs skill that finds and enables the right packs, and a band above the prompt showing active packs, context and cost. |  |
 | `system-one` | Cheap small models for typed judgments (TypeSafe Jev) and extraction or summaries (ScaleDown), so the big model only decides. | `summarize this 40 page PDF cheaply before you read it` |
+| `memory-pack` | Project memory as Markdown committed to the repo, so it follows you across machines and cloud sessions. A small index loads at session start. | `remember that we deploy from the release branch` |
 
 ### Build
 
@@ -129,6 +131,7 @@ Prefer to choose by hand? Copy a preset from [`templates/`](templates/) into `.c
 | `taste-skill` | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | art direction for frontend work, image-to-code, redesign and style skills. |
 | `playwright-cli` | [microsoft/playwright-cli](https://github.com/microsoft/playwright-cli) | token-efficient browser automation. Needs `npm i -g @playwright/cli`. |
 | `web-design-guidelines` | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | Vercel's ~100-rule UI audit for accessibility, UX and performance. |
+| `session-mem` | [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | automatic session memory with compression and semantic search in a local database. Local only, so it does not reach cloud sessions. |
 <!-- catalogue:end -->
 
 ## Use skills in claude.ai and Claude Desktop
@@ -140,6 +143,24 @@ Some skills help in plain chats too, not only in Claude Code. `architect` is the
 3. Start a chat: `Help me design the architecture for my product idea: ...`
 
 Every skill in the repo is published as a zip on each release.
+
+## Use it in cloud sessions
+
+Cloud sessions ([claude.ai/code](https://claude.ai/code), `claude --cloud`, the mobile and Desktop apps) start from a fresh clone of your repo and **do not install plugins** that a repo lists in `.claude/settings.json`. Set the harness up once on the cloud environment instead, and every session that uses it gets the packs:
+
+1. Open [claude.ai/code](https://claude.ai/code), edit your environment, and set network access to **Trusted** (or allow `github.com`).
+2. Paste this as the **Setup script**, listing the packs you want:
+
+```bash
+git clone --depth 1 https://github.com/Parthkomalwad/agentic-harness /tmp/agentic-harness
+HARNESS_PACKS="core memory-pack ui-pack deploy-pack" bash /tmp/agentic-harness/scripts/cloud-setup.sh
+```
+
+3. Start a session. New packs you add to this repo arrive automatically, because the script installs from the latest `main`.
+
+Keys that packs need (such as `TYPESAFE_API_KEY`) go in the environment's **network secrets**, never in the setup script, which anyone using the environment can read.
+
+`memory-pack` is built for this: its memory is Markdown committed under `.claude/memory/`, so it is in every clone, local or cloud.
 
 ## How it works
 
