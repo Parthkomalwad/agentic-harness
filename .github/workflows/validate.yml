@@ -78,3 +78,11 @@ jobs:
             claude plugin validate "$dir" --strict
             echo "::endgroup::"
           done
+      - name: Mod tests
+        run: |
+          for dir in plugins/*/; do
+            ls "$dir"tests/*.test.ts >/dev/null 2>&1 || continue
+            echo "::group::$dir tests"
+            (cd "$dir" && claude plugin test)
+            echo "::endgroup::"
+          done

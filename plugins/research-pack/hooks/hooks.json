@@ -1,0 +1,4 @@
+{
+  "description": "research-pack sources tracker: records searches and fetched pages, /sources shows them",
+  "modules": ["./sources.js"]
+}

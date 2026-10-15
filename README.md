@@ -13,7 +13,7 @@
 [![validate](https://github.com/Parthkomalwad/agentic-harness/actions/workflows/validate.yml/badge.svg)](https://github.com/Parthkomalwad/agentic-harness/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-D97757?labelColor=1F1E1D)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude_Code-plugin_marketplace-D97757?labelColor=1F1E1D)](https://code.claude.com/docs/en/plugins-reference)
-[![Packs](https://img.shields.io/badge/packs-24-D97757?labelColor=1F1E1D)](#catalogue)
+[![Packs](https://img.shields.io/badge/packs-25-D97757?labelColor=1F1E1D)](#catalogue)
 
 [Install](#install) · [Packs](#packs) · [Guide](docs/guide.md) · [All packs](docs/catalogue.md)
 
@@ -54,7 +54,7 @@ Cloud sessions and claude.ai work too: see the [guide](docs/guide.md).
 - **Build:** `ui-pack` · `motion-pack` · `docs-pack` · `orchestrator` · `db-pack`
 - **Decide:** `council-pack` · `architect-pack` · `glassbox` · `research-pack`
 - **Ship:** `deploy-pack` · `test-pack` · `security-pack` · `observability-pack` · `ship-pack` · `launch-pack`
-- **Upstream:** `superpowers` · `taste-skill` · `playwright-cli` · `web-design-guidelines` · `session-mem`
+- **Upstream:** `superpowers` · `taste-skill` · `playwright-cli` · `web-design-guidelines` · `session-mem` · `firecrawl`
 
 <!-- catalogue:end -->
 
