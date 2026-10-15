@@ -5,6 +5,8 @@ All notable changes. Each pack also carries its own `version` in `plugins/<pack>
 ## Unreleased
 
 ### Added
+- `memory-pack`: repo-committed Markdown memory with a SessionStart index loader, and an upstream entry for claude-mem (as `session-mem`).
+- `scripts/cloud-setup.sh` and a README section for installing packs in cloud sessions.
 - `core` 0.2.0: harness band mod above the prompt (active packs, context %, cost) and the instant `/harness` command.
 - Ten packs: `glassbox`, `system-one`, `research-pack`, `orchestrator`, `test-pack`, `security-pack` (with a dangerous-command guard), `db-pack`, `observability-pack`, `ship-pack`, `launch-pack`.
 - Original 3D voxel mascot in the hero.

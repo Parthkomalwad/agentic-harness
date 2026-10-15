@@ -1,0 +1,10 @@
+{
+  "name": "memory-pack",
+  "displayName": "Memory Pack",
+  "version": "0.1.0",
+  "description": "Project memory as plain Markdown committed to the repo: remembered across sessions, machines and cloud sessions, loaded as a small index at start.",
+  "author": { "name": "Parth Komalwad", "url": "https://github.com/Parthkomalwad" },
+  "repository": "https://github.com/Parthkomalwad/agentic-harness",
+  "license": "MIT",
+  "keywords": ["memory", "context", "notes"]
+}
