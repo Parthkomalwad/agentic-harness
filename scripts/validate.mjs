@@ -57,6 +57,8 @@ if (market) {
     seen.add(p.name)
     if (!p.description) fail(where, 'missing description')
     if (!p.category) fail(where, 'missing category')
+    if (!['Foundation', 'Build', 'Decide', 'Ship', 'Upstream'].includes(p.metadata?.group)) fail(where, 'metadata.group must be Foundation, Build, Decide, Ship or Upstream')
+    if (p.metadata?.hero && !['on', 'off'].includes(p.metadata.hero)) fail(where, 'metadata.hero must be "on" or "off"')
     if ((p.metadata?.intents ?? []).length < 3) fail(where, 'needs at least 3 metadata.intents (problems this pack solves, in the user\'s words)')
     if (p.defaultEnabled !== false && !ALWAYS_ON.has(p.name)) fail(where, 'packs must set "defaultEnabled": false')
 
@@ -111,6 +113,8 @@ for (const file of readdirSync('.', { recursive: true })) {
 }
 
 for (const t of existsSync('templates') ? readdirSync('templates') : []) readJson(join('templates', t))
+
+if ((market?.plugins ?? []).filter((p) => p.metadata?.hero).length > 12) fail('marketplace', 'at most 12 packs can set metadata.hero')
 
 if (errors.length) {
   console.error(errors.map((e) => `✗ ${e}`).join('\n'))

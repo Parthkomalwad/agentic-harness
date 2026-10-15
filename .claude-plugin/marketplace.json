@@ -13,7 +13,7 @@
     {
       "name": "core",
       "source": "./plugins/core",
-      "description": "Always-on base: lean-code rules and the pack switcher.",
+      "description": "Always-on base: lean-code rules, and the packs skill that finds and enables the right packs for your problem.",
       "category": "core",
       "tags": [
         "core"
@@ -25,7 +25,9 @@
           "which pack should I use",
           "set up the harness for this project",
           "keep code minimal"
-        ]
+        ],
+        "group": "Foundation",
+        "hero": "on"
       }
     },
     {
@@ -46,7 +48,10 @@
           "redesign this page",
           "need a dashboard or hero section",
           "pick components"
-        ]
+        ],
+        "group": "Build",
+        "try": "build a dashboard in the Vercel style",
+        "hero": "on"
       },
       "relevance": {
         "topic": "UI design",
@@ -82,7 +87,10 @@
           "product promo or showreel",
           "animated explainer",
           "motion graphics in code"
-        ]
+        ],
+        "group": "Build",
+        "try": "make a 20s vertical launch video for <url>",
+        "hero": "off"
       },
       "relevance": {
         "topic": "motion video",
@@ -113,7 +121,10 @@
           "my README is unclear",
           "improve project docs",
           "make the repo look good on GitHub"
-        ]
+        ],
+        "group": "Build",
+        "try": "rewrite this README so people get it in 10 seconds",
+        "hero": "off"
       },
       "relevance": {
         "topic": "READMEs",
@@ -142,7 +153,10 @@
           "S3 or R2",
           "static site hosting",
           "pick a database host"
-        ]
+        ],
+        "group": "Ship",
+        "try": "where should I deploy this, cheaply?",
+        "hero": "on"
       },
       "relevance": {
         "topic": "deployment",
@@ -182,7 +196,10 @@
           "get several opinions on this",
           "stress-test my plan",
           "hard architecture or product decision"
-        ]
+        ],
+        "group": "Decide",
+        "try": "/council-pack:council Postgres or DynamoDB for this?",
+        "hero": "off"
       }
     },
     {
@@ -202,7 +219,10 @@
           "plan a new system",
           "review my design",
           "brainstorm a product idea"
-        ]
+        ],
+        "group": "Decide",
+        "try": "design the architecture for a booking app",
+        "hero": "on"
       }
     },
     {
@@ -224,7 +244,9 @@
           "use TDD",
           "structured development method",
           "brainstorm a feature"
-        ]
+        ],
+        "group": "Upstream",
+        "hero": "off"
       }
     },
     {
@@ -245,7 +267,9 @@
           "better visual taste",
           "art direction for UI",
           "turn a screenshot into code"
-        ]
+        ],
+        "group": "Upstream",
+        "hero": "on"
       }
     },
     {
@@ -268,7 +292,9 @@
           "take screenshots of my site",
           "test in a real browser",
           "automate a browser"
-        ]
+        ],
+        "group": "Upstream",
+        "hero": "on"
       },
       "relevance": {
         "topic": "browser automation",
@@ -300,7 +326,8 @@
           "audit my UI",
           "check accessibility",
           "review UX"
-        ]
+        ],
+        "group": "Upstream"
       }
     }
   ]

@@ -18,6 +18,8 @@ jobs:
           node-version: 22
       - name: Catalogue rules
         run: node scripts/validate.mjs
+      - name: README and hero match the catalogue
+        run: node scripts/build-docs.mjs --check
 
   commit-policy:
     if: github.event_name == 'pull_request'
@@ -41,6 +43,22 @@ jobs:
             exit 1
           fi
           echo "commit policy ok"
+      - name: Changed packs bump their version
+        run: |
+          base=origin/${{ github.base_ref }}
+          status=0
+          for dir in $(git diff --name-only "$base"...HEAD -- plugins | cut -d/ -f2 | sort -u); do
+            manifest="plugins/$dir/.claude-plugin/plugin.json"
+            [ -f "$manifest" ] || continue
+            git cat-file -e "$base:$manifest" 2>/dev/null || continue   # new pack
+            old=$(git show "$base:$manifest" | jq -r .version)
+            new=$(jq -r .version "$manifest")
+            if [ "$old" = "$new" ]; then
+              echo "::error::plugins/$dir changed but its version is still $old. Bump version in $manifest."
+              status=1
+            fi
+          done
+          exit $status
 
   claude-validate:
     runs-on: ubuntu-latest
