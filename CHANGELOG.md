@@ -4,6 +4,10 @@ All notable changes. Each pack also carries its own `version` in `plugins/<pack>
 
 ## Unreleased
 
+### Added
+- `research-pack` 0.2.0: `/research-pack:deep` workflow (plan, parallel collect, A to E source grading, fact-check, cited report) and a sources tracker mod with `/sources` and a Sources pane, with a unit test.
+- Upstream `firecrawl` entry. CI now runs mod tests with `claude plugin test`.
+
 ### Fixed
 - The band mod never loaded: Claude Code reserves the plugin name `core` for its own layer. The mod now ships as its own always-on pack, `harness-band`. `core` 0.2.1 keeps the skills.
 

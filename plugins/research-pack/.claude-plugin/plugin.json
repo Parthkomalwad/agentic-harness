@@ -1,8 +1,8 @@
 {
   "name": "research-pack",
   "displayName": "Research Pack",
-  "version": "0.1.0",
-  "description": "Research across the web, GitHub, Reddit, X and YouTube with Agent Reach, cross-checked and cited.",
+  "version": "0.2.0",
+  "description": "Deep research across web, GitHub, Reddit, X and YouTube: a parallel workflow with A to E source grading and fact-checking, and a sources tracker you can audit with /sources.",
   "author": {
     "name": "Parth Komalwad",
     "url": "https://github.com/Parthkomalwad"

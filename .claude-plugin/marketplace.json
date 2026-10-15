@@ -330,7 +330,7 @@
     {
       "name": "research-pack",
       "source": "./plugins/research-pack",
-      "description": "Research across the web, GitHub, Reddit, X and YouTube with Agent Reach, cross-checked and cited.",
+      "description": "Deep research across web, GitHub, Reddit, X and YouTube: a parallel workflow with A to E source grading and fact-checking, and a sources tracker you can audit with /sources.",
       "category": "decide",
       "tags": [
         "research",
@@ -340,12 +340,14 @@
       "defaultEnabled": false,
       "metadata": {
         "group": "Decide",
-        "try": "research what developers say about Bun vs Node in 2026",
+        "try": "/research-pack:deep how do teams run Postgres on Kubernetes in 2026?",
         "intents": [
           "research this topic",
           "what are people saying about X",
           "find sources and cite them",
-          "compare tools with real opinions"
+          "compare tools with real opinions",
+          "deep research with citations",
+          "which sources did you use"
         ]
       },
       "relevance": {
@@ -663,6 +665,29 @@
           "automatic memory of past sessions",
           "search what Claude did before",
           "persistent memory across sessions"
+        ]
+      }
+    },
+    {
+      "name": "firecrawl",
+      "source": {
+        "source": "github",
+        "repo": "firecrawl/firecrawl-claude-plugin"
+      },
+      "description": "Upstream: Firecrawl web search, page reading, scraping and research indexes through its hosted MCP server. Needs a Firecrawl account; connect with /mcp.",
+      "category": "external",
+      "tags": [
+        "search",
+        "scrape",
+        "research"
+      ],
+      "defaultEnabled": false,
+      "metadata": {
+        "group": "Upstream",
+        "intents": [
+          "scrape this website",
+          "search the web better",
+          "read many pages for research"
         ]
       }
     }

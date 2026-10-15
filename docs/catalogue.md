@@ -30,7 +30,7 @@ Every pack, grouped. All start off except `core`. Install with `/plugin install 
 | `council-pack` | LLM council made of Claude agents: independent answers, anonymous peer ranking, chairman synthesis. | `/council-pack:council Postgres or DynamoDB for this?` |
 | `architect-pack` | System and product design partner: requirements, options, Well-Architected pillar review, deployment plan, design artifacts. Also uploadable to claude.ai. | `design the architecture for a booking app` |
 | `glassbox` | Open the black box: record why each decision was made, map how the code flows, and quiz yourself before accepting a change. | `explain what you just built and quiz me on it` |
-| `research-pack` | Research across the web, GitHub, Reddit, X and YouTube with Agent Reach, cross-checked and cited. | `research what developers say about Bun vs Node in 2026` |
+| `research-pack` | Deep research across web, GitHub, Reddit, X and YouTube: a parallel workflow with A to E source grading and fact-checking, and a sources tracker you can audit with /sources. | `/research-pack:deep how do teams run Postgres on Kubernetes in 2026?` |
 
 ### Ship
 
@@ -52,3 +52,4 @@ Every pack, grouped. All start off except `core`. Install with `/plugin install 
 | `playwright-cli` | [microsoft/playwright-cli](https://github.com/microsoft/playwright-cli) | token-efficient browser automation. Needs `npm i -g @playwright/cli`. |
 | `web-design-guidelines` | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | Vercel's ~100-rule UI audit for accessibility, UX and performance. |
 | `session-mem` | [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | automatic session memory with compression and semantic search in a local database. Local only, so it does not reach cloud sessions. |
+| `firecrawl` | [firecrawl/firecrawl-claude-plugin](https://github.com/firecrawl/firecrawl-claude-plugin) | Firecrawl web search, page reading, scraping and research indexes through its hosted MCP server. Needs a Firecrawl account; connect with /mcp. |
