@@ -3,7 +3,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/hero-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="docs/assets/hero-light.svg">
-  <img src="docs/assets/hero-dark.svg" alt="The agentic-harness hub in the centre with eleven packs around it. Six packs are switched on for this project and linked to the hub; the rest are dimmed and cost zero tokens." width="900">
+  <img src="docs/assets/hero-dark.svg" alt="A 3D voxel mascot at the centre of the agentic-harness hub, with packs around it. Six packs are switched on for this project and linked to the hub; the rest are dimmed and cost zero tokens." width="900">
 </picture>
 
 <br>
