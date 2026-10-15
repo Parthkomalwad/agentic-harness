@@ -1,7 +1,7 @@
 {
   "name": "deploy-pack",
   "displayName": "Deploy Pack",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Deployment strategist: audits a project and recommends the cheapest hosting stack that fits it, with cost estimates and an exit plan.",
   "author": { "name": "Parth Komalwad", "url": "https://github.com/Parthkomalwad" },
   "repository": "https://github.com/Parthkomalwad/agentic-harness",
