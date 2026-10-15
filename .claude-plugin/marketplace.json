@@ -33,7 +33,7 @@
     {
       "name": "ui-pack",
       "source": "./plugins/ui-pack",
-      "description": "UI without the AI look: DESIGN.md style, curated shadcn registries, build, screenshot, audit, fix.",
+      "description": "UI without the AI look, built on how people scan and decide: use-case layout playbooks, laws of UX, DESIGN.md style, curated shadcn registries, then screenshot, audit, fix.",
       "category": "ui",
       "tags": [
         "ui",
@@ -47,7 +47,10 @@
           "my UI looks generic or AI-made",
           "redesign this page",
           "need a dashboard or hero section",
-          "pick components"
+          "pick components",
+          "where should things go on my page",
+          "make my landing page convert",
+          "layout for a dashboard"
         ],
         "group": "Build",
         "try": "build a dashboard in the Vercel style",

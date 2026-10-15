@@ -97,7 +97,7 @@ Prefer to choose by hand? Copy a preset from [`templates/`](templates/) into `.c
 
 | Pack | What it does | Try |
 |---|---|---|
-| `ui-pack` | UI without the AI look: DESIGN.md style, curated shadcn registries, build, screenshot, audit, fix. | `build a dashboard in the Vercel style` |
+| `ui-pack` | UI without the AI look, built on how people scan and decide: use-case layout playbooks, laws of UX, DESIGN.md style, curated shadcn registries, then screenshot, audit, fix. | `build a dashboard in the Vercel style` |
 | `motion-pack` | Motion design in code: launch videos and reels rendered frame by frame, with a self-critique loop. | `make a 20s vertical launch video for <url>` |
 | `docs-pack` | Create, restructure or update a README that explains the project clearly and looks good on GitHub. | `rewrite this README so people get it in 10 seconds` |
 | `orchestrator` | Sweep a codebase with a dynamic workflow: cheap agents scan, stronger agents fix in isolated copies, a verifier keeps only proven changes. | `/orchestrator:sweep missing auth checks in src/routes` |
