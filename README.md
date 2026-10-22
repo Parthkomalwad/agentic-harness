@@ -1,3 +1,8 @@
+> **v2 is here.** This repo is the original pack-based harness. I now use
+> [lean-harness](https://github.com/Parthkomalwad/lean-harness): fewer tokens,
+> works across coding agents, and every piece is measured. Read why in
+> [ADR-0001](https://github.com/Parthkomalwad/lean-harness/blob/main/docs/adr/0001-why-lean.md).
+
 <div align="center">
 
 <picture>
